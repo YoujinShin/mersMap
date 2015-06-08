@@ -1,22 +1,98 @@
+@font-face {
+	font-family: Neue;
+	src: url(NeueHaasUnicaPro-Regular.ttf);
+}
 
+@font-face {
+	font-family: NeueThin;
+	src: url(NeueHaasUnicaPro-Thin.ttf);
+}
 
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
+@font-face {
+	font-family: Namsan;
+	src: url(namsan.ttf);
+}
 
+body {
+	font-family: 'Namsan', sans-serif;
+	margin: 0px;
+}
 
+h1 {
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-top: 14px;
+	padding-bottom: 14px;
+	z-index: 10;
+	background-color: rgba(38, 40, 60, 0.7);
+	border-radius: 10px;
+	font-size: 22px;
+	color: rgba(255,255,255,1);
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	text-align: center;
 
+	font-weight: 400;
+}
 
+#map {
+	position:absolute; top:0; bottom:0; width:100%; 
+	background-color: black;
+}
 
+#icon_set {
+	position: absolute;
+	z-index: 5;
+	left: 20px;
+	bottom: 20px;
+	width: 80px;
+	height: 180px;
+	border-radius: 10px;
+	background-color: rgba(38, 40, 60, 0.7);
+}
 
+#icon_hospital {
+	position: absolute;
+	z-index: 10;
+	left: 30px;
+	bottom: 120px;
+	width: 60px;
+	height: 60px;
+	border-radius: 60px;
+	background-color: #ed526f;
 
+	color: white;
+	font-size: 14px;
+	text-align: center;
+	letter-spacing: 2px;
+	line-height: 145%;
+}
 
+#icon_patient {
+	position: absolute;
+	z-index: 10;
+	left: 30px;
+	bottom: 40px;
+	width: 60px;
+	height: 60px;
+	border-radius: 60px;
+	background-color: rgba(255,255,255,0.2);
+	color: white;
+	font-size: 14px;
+	text-align: center;
+	letter-spacing: 2px;
+	line-height: 145%;
+}
 
+.leaflet-top .leaflet-control {
+	margin-top: 130px;
+	margin-left: 20px;
+}
 
-
-
-
-
-
-
-
+.leaflet-bar, .leaflet-control-layers {
+	background-color: rgba(255,255,255,0.7);
+	border-color: rgba(255,255,255,0);
+}
