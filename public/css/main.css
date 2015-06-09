@@ -27,7 +27,8 @@ h1 {
 	padding-top: 14px;
 	padding-bottom: 14px;
 	z-index: 10;
-	background-color: rgba(38, 40, 60, 0.7);
+	/*background-color: rgba(38, 40, 60, 0.7);*/
+	background-color: rgba(0,0,0, 0.6);
 	border-radius: 10px;
 	font-size: 22px;
 	color: rgba(255,255,255,1);
@@ -51,7 +52,8 @@ h1 {
 	width: 80px;
 	height: 180px;
 	border-radius: 10px;
-	background-color: rgba(38, 40, 60, 0.7);
+	/*background-color: rgba(38, 40, 60, 0.7);*/
+	background-color: rgba(0,0,0, 0.6);
 }
 
 #icon_hospital {
@@ -93,6 +95,35 @@ h1 {
 }
 
 .leaflet-bar, .leaflet-control-layers {
-	background-color: rgba(255,255,255,0.7);
+	background-color: rgba(255,255,255,0.6);
 	border-color: rgba(255,255,255,0);
 }
+
+/*popup*/
+.custom-popup .leaflet-popup-content-wrapper {
+  font-family: 'Namsan', sans-serif;
+  background-color: rgba(0,0,0,0.6) !important;
+  color:#fff;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+.leaflet-popup-tip {
+	border-top: 10px solid rgba(0,0,0,0.6) !important;
+}
+
+#tooltip {   
+	font-family: 'Namsan', sans-serif;
+	position: absolute;
+	z-index: 30; 
+	text-align: center;
+	padding: 8px;       
+	font-size: 14px;
+	border: 1px;
+	border-radius: 4px;
+	pointer-events: none;
+	letter-spacing: 1px;
+	color: #fff;
+	background-color: rgba(0,0,0,0.7);
+	visibility: hidden;
+}
+
