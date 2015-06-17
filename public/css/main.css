@@ -99,14 +99,38 @@ h1 {
 	border-color: rgba(255,255,255,0);
 }
 
+.axis path {
+	fill: none;
+	stroke: none;
+}
+.axis line {
+	fill: none;
+	stroke: rgba(255,255,255,0.3);
+}
+.axis {
+	font-size: 10px;
+	font-family: 'Namsan', sans-serif;
+	fill: rgba(255,255,255,0.7);
+	stroke: none;
+}
+
 /*popup*/
-.custom-popup .leaflet-popup-content-wrapper {
+/*.custom-popup .leaflet-popup-content-wrapper {
+  font-family: 'Namsan', sans-serif;
+  background-color: rgba(0,0,0,0.6) !important;
+  color:#fff;
+  font-size: 16px;
+  letter-spacing: 1px;
+}*/
+
+.leaflet-popup-content-wrapper {
   font-family: 'Namsan', sans-serif;
   background-color: rgba(0,0,0,0.6) !important;
   color:#fff;
   font-size: 16px;
   letter-spacing: 1px;
 }
+
 .leaflet-popup-tip {
 	border-top: 10px solid rgba(0,0,0,0.6) !important;
 }
@@ -116,7 +140,7 @@ h1 {
 	position: absolute;
 	z-index: 30; 
 	text-align: center;
-	padding: 8px;       
+	padding: 10px;       
 	font-size: 14px;
 	border: 1px;
 	border-radius: 4px;
