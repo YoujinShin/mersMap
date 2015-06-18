@@ -163,7 +163,7 @@ h1 {
   font-family: 'Namsan', sans-serif;
   background-color: rgba(0,0,0,0.6) !important;
   color:#fff;
-  font-size: 13px;
+  font-size: 12px;
   letter-spacing: 1px;
 }
 
@@ -177,7 +177,7 @@ h1 {
 	z-index: 30; 
 	text-align: center;
 	padding: 10px;       
-	font-size: 14px;
+	font-size: 12px;
 	border: 1px;
 	border-radius: 4px;
 	pointer-events: none;

@@ -3,7 +3,7 @@ L.mapbox.accessToken = 'pk.eyJ1IjoibWVnZ29uYWd1bCIsImEiOiI1cFpUOE5RIn0.jooCCIM58
 var map = L.map('map', {
 	minZoom: 6,
 	maxZoom: 19
-}).setView([36.9644354,127.7088928+3.0], 7);
+}).setView([36.9644354,127.7088928+1.2], 8);
 
 // MapID: https://www.mapbox.com/developers/api/maps/
 // grey: examples.map-20v6611k
@@ -68,22 +68,22 @@ function init(d) {
 	var lat = d.lat;
 	var lon = d.lon;
 
-	var marker = L.marker([lat, lon], {
-		icon: L.mapbox.marker.icon({ 'marker-color': "#ed526f" })
-	});
-
-	marker.bindPopup(d.name + ': ' + '확진자 (' + d.num + ')명' + ', 사망 (' + d.death + ')명');
-	marker.addTo(hospitalLayer);
-
-	// var circleMarker = L.circle([lat, lon], radiusScale(d.num), {
-	// 	color: "#526fed",
-	// 	opacity: 1,
-	// 	fillOpacity: 0.5,
-	// 	weight: 2
+	// var marker = L.marker([lat, lon], {
+	// 	icon: L.mapbox.marker.icon({ 'marker-color': "#ed526f" })
 	// });
 
-	// circleMarker.bindPopup(d.name + ': ' + d.num + ' 명');
-	// circleMarker.addTo(patientLayer); 
+	// marker.bindPopup(d.name + ': ' + '확진자 (' + d.num + ')명' + ', 사망 (' + d.death + ')명');
+	// marker.addTo(hospitalLayer);
+
+	var circleMarker = L.circle([lat, lon], 6000, {
+		color: "#526fed",
+		// opacity: 0.4,
+		fillOpacity: 0.6,
+		weight: 1
+	});
+
+	circleMarker.bindPopup(d.name + ': ' + '확진자 (' + d.num + ')명' + ', 사망 (' + d.death + ')명');
+	circleMarker.addTo(hospitalLayer); 
 }
 
 

@@ -5,7 +5,7 @@
 	top: 5%;
 	width: 46%;
 	height: 90%;
-	background-color: rgba(38, 40, 60, 0.5);
+	background-color: rgba(38, 40, 60, 0.56);
 	border-radius: 20px;
 }
 
@@ -17,7 +17,7 @@
 	width: 46%;
 	height: 90%;
 	background-color: #cfcfcf;
-	opacity: 0.8;
+	opacity: 0;
 	border-radius: 20px;
 }
 
