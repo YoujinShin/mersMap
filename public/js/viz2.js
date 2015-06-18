@@ -38,31 +38,6 @@ var ages = [ 0, 20, 40, 60, 80 ];
 
 function initViz(data) {
 
-	// circle
-	circle = svg.selectAll("circle")
-			.data(data)
-		.enter().append("circle")
-		.attr('cx', function(d) { return xScale(d.date); })
-		.attr('cy', function(d, i) { return yScale(d.y); })
-		.attr("r", function(d) { return 2.6; })
-		.style("fill", function(d) { return getColor(d); })
-		.on("mouseover", function(d,i) {
-
-			getName(d.hospital);
-
-			tooltip.text(d.age + '세, ' +  hospitalName);
-			tooltip.style("visibility", "visible");
-
-		})
-		.on("mousemove", function() {
-			tooltip.style("top", (event.pageY - 10) + "px")
-			.style("left", (event.pageX + 12) + "px");
-		})
-		.on("mouseout", function() {
-			tooltip.style("visibility", "hidden");
-		});
-
-
 	// line - age
 	line_age = svg.selectAll("line")
 			.data(ages)
@@ -90,6 +65,33 @@ function initViz(data) {
         .attr("class", "x axis")
         .attr("transform", "translate(0," + ty + ")")
         .call(xAxis);
+
+
+    // circle
+	circle = svg.selectAll("circle")
+			.data(data)
+		.enter().append("circle")
+		.attr('cx', function(d) { return xScale(d.date); })
+		.attr('cy', function(d, i) { return yScale(d.y); })
+		.attr("r", function(d) { return 2.6; })
+		.style("fill", function(d) { return getColor(d); })
+		.attr('stroke', 'rgba(0,0,0,0)')
+		.attr('stroke-width', 1.2)
+		.on("mouseover", function(d,i) {
+
+			getName(d.hospital);
+
+			tooltip.text(d.age + '세, ' +  hospitalName);
+			tooltip.style("visibility", "visible");
+
+		})
+		.on("mousemove", function() {
+			tooltip.style("top", (event.pageY - 10) + "px")
+			.style("left", (event.pageX + 12) + "px");
+		})
+		.on("mouseout", function() {
+			tooltip.style("visibility", "hidden");
+		});
 }
 
 

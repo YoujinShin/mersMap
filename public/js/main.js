@@ -53,6 +53,11 @@ function ready(error, data) {
 
 	hospital.forEach(function(d) { init(d); });
 	hospitalLayer.addTo(map);
+	hospitalLayer.on({
+		// mouseover: mouseOverLayer,
+		// mouseout: mouseOutLayer,
+		click: mouseClickLayer
+	});
 
 	initViz(data);
 }
@@ -82,7 +87,8 @@ function init(d) {
 		weight: 1
 	});
 
-	circleMarker.bindPopup(d.name + ': ' + '확진자 (' + d.num + ')명' + ', 사망 (' + d.death + ')명');
+	// circleMarker.bindPopup(d.name + ': ' + '확진자 (' + d.num + ')명' + ', 사망 (' + d.death + ')명');
+	circleMarker.bindPopup(d.name);
 	circleMarker.addTo(hospitalLayer); 
 }
 
