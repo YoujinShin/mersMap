@@ -24,3 +24,10 @@ function getInfos(e) {
 
 	return e.layer._popup._content;
 }
+
+function popupClose(e) {
+	// console.log(e);
+	circle.each(function(d) {
+		d3.select(this).attr('stroke', 'rgba(0,0,0,0)');
+	});
+}

@@ -107,7 +107,7 @@ function getName(name) {
 
 
 function getColor(d) {
-	if(d.condition == 'death') { return  '#444664' }//rgba(255,0,0,0.8) // pink: ed526f// purple: 444664
+	if(d.condition == 'death') { return  '#ed526f' }//rgba(255,0,0,0.8) // pink: ed526f// purple: 444664
 	else { return 'rgba(255,255,255,0.86)' }
 }
 
@@ -125,6 +125,7 @@ function byAge() {
 	text_age.transition().duration(4000)
 		.style('opacity', 1);
 }
+
 
 function byTime() {
 	circle.transition().duration(2000)

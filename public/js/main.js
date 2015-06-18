@@ -56,7 +56,8 @@ function ready(error, data) {
 	hospitalLayer.on({
 		// mouseover: mouseOverLayer,
 		// mouseout: mouseOutLayer,
-		click: mouseClickLayer
+		click: mouseClickLayer,
+		popupclose: popupClose
 	});
 
 	initViz(data);
