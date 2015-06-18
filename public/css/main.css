@@ -144,9 +144,9 @@ h1 {
 	stroke: rgba(255,255,255,0.3);
 }
 .axis {
-	font-size: 10px;
+	font-size: 11px;
 	font-family: 'Namsan', sans-serif;
-	fill: rgba(255,255,255,0.7);
+	fill: rgba(255,255,255,0.9);
 	stroke: none;
 }
 
@@ -163,7 +163,7 @@ h1 {
   font-family: 'Namsan', sans-serif;
   background-color: rgba(0,0,0,0.6) !important;
   color:#fff;
-  font-size: 16px;
+  font-size: 13px;
   letter-spacing: 1px;
 }
 

@@ -9,11 +9,6 @@ var svg = d3.select('#viz').append('svg')
 	.attr('width', width)
 	.attr('height', height);
 
-var g = svg.append('g')
-	.attr('class', 'x axis')
-	.attr('transform', 'translate(0, 0)');
-	// .call(xAxis);
-
 var tooltip = d3.select("body")
   .append("div")
   .attr("id", "tooltip");
@@ -38,11 +33,12 @@ var xAxis = d3.svg.axis()
 	.orient('bottom')
 	.ticks(7);
 
-// g.call(xAxis);
+var ages = [ 0, 20, 40, 60, 80 ];
 
 
 function initViz(data) {
 
+	// circle
 	circle = svg.selectAll("circle")
 			.data(data)
 		.enter().append("circle")
@@ -66,11 +62,34 @@ function initViz(data) {
 			tooltip.style("visibility", "hidden");
 		});
 
-	// var ty = yScale(0) + 30;
-	// svg.append('g')
-	// 	.attr('class', 'x axis')
-	// 	.attr('transform', 'translate(0,' + ty + ')')
-	// 	.call(xAxis);
+
+	// line - age
+	line_age = svg.selectAll("line")
+			.data(ages)
+		.enter().append("line")
+		.attr('x1', function() { return 70; })
+		.attr('x2', function() { return width - 70; })
+		.attr('y1', function(d) { return yScale2(0); })
+		.attr('y2', function(d) { return yScale2(0); })
+		.attr('stroke', 'rgba(255,255,255,0.1)');
+
+	// text - age
+	text_age = svg.selectAll("text")
+			.data(ages)
+		.enter().append("text")
+		.attr('class', 'text_age')
+		.text(function(d) { return d +'세'; })
+		.attr('x', function() { return width - 70 + 10; })
+		.attr('y', function(d) { return yScale2(d) + 5; })
+		.style('opacity', 0);
+
+
+	// axis
+	var ty = yScale(0) + 10;
+	svg.append("g")            // Add the X Axis
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + ty + ")")
+        .call(xAxis);
 }
 
 
@@ -95,12 +114,28 @@ function byAge() {
 	circle.transition().duration(2000)
 		.attr('cx', function(d) { return xScale(d.date); })
 		.attr('cy', function(d, i) { return yScale2(d.age); });
+
+	line_age.transition().duration(2000)
+		.attr('y1', function(d) { return yScale2(d); })
+		.attr('y2', function(d) { return yScale2(d); })
+		.attr('stroke', 'rgba(255,255,255,0.4)');
+
+	text_age.transition().duration(4000)
+		.style('opacity', 1);
 }
 
 function byTime() {
 	circle.transition().duration(2000)
 		.attr('cx', function(d) { return xScale(d.date); })
 		.attr('cy', function(d, i) { return yScale(d.y); });
+
+	line_age.transition().duration(2000)
+		.attr('y1', function(d) { return yScale2(0); })
+		.attr('y2', function(d) { return yScale2(0); })
+		.attr('stroke', 'rgba(255,255,255,0.1)');
+
+	text_age.transition().duration(1000)
+		.style('opacity', 0);
 }
 
 
