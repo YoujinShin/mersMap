@@ -12,10 +12,11 @@ function mouseClickLayer(e) {
 		if(hospital_name == name) {
 			// d3.select(this).transition().duration(100).attr('r' , 3);
 			// d3.select(this).attr('stroke', '#ed526f');
-			d3.select(this).attr('stroke', 'red');
+			d3.select(this).attr('opacity', 1);
 		} else {
 			// d3.select(this).transition().duration(100).attr('r' , 2.6)
-			d3.select(this).attr('stroke', 'rgba(0,0,0,0)');
+			d3.select(this).transition().duration(100)
+				.attr('opacity', 0.1);
 		}
 	});
 }
@@ -28,6 +29,7 @@ function getInfos(e) {
 function popupClose(e) {
 	// console.log(e);
 	circle.each(function(d) {
-		d3.select(this).attr('stroke', 'rgba(0,0,0,0)');
+		d3.select(this).transition().duration(100)
+			.attr('opacity', 1);
 	});
 }

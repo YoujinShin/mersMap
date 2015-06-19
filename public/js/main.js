@@ -74,23 +74,23 @@ function init(d) {
 	var lat = d.lat;
 	var lon = d.lon;
 
-	// var marker = L.marker([lat, lon], {
-	// 	icon: L.mapbox.marker.icon({ 'marker-color': "#ed526f" })
-	// });
-
-	// marker.bindPopup(d.name + ': ' + '확진자 (' + d.num + ')명' + ', 사망 (' + d.death + ')명');
-	// marker.addTo(hospitalLayer);
-
-	var circleMarker = L.circle([lat, lon], 6000, {
-		color: "#526fed",
-		// opacity: 0.4,
-		fillOpacity: 0.6,
-		weight: 1
+	var marker = L.marker([lat, lon], {
+		icon: L.mapbox.marker.icon({ 'marker-color': "#ed526f" })
 	});
 
-	// circleMarker.bindPopup(d.name + ': ' + '확진자 (' + d.num + ')명' + ', 사망 (' + d.death + ')명');
-	circleMarker.bindPopup(d.name);
-	circleMarker.addTo(hospitalLayer); 
+	marker.bindPopup(d.name);
+	marker.addTo(hospitalLayer);
+
+	// var circleMarker = L.circle([lat, lon], 6000, {
+	// 	color: "#526fed",
+	// 	// opacity: 0.4,
+	// 	fillOpacity: 0.6,
+	// 	weight: 1
+	// });
+
+	// // circleMarker.bindPopup(d.name + ': ' + '확진자 (' + d.num + ')명' + ', 사망 (' + d.death + ')명');
+	// circleMarker.bindPopup(d.name);
+	// circleMarker.addTo(hospitalLayer); 
 }
 
 
