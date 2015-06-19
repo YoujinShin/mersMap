@@ -3,7 +3,7 @@ L.mapbox.accessToken = 'pk.eyJ1IjoibWVnZ29uYWd1bCIsImEiOiI1cFpUOE5RIn0.jooCCIM58
 var map = L.map('map', {
 	minZoom: 6,
 	maxZoom: 19
-}).setView([36.9644354,127.7088928+1.2], 8);
+}).setView([36.9644354,127.7088928+0.1], 9);
 
 // MapID: https://www.mapbox.com/developers/api/maps/
 // grey: examples.map-20v6611k
@@ -30,6 +30,7 @@ var hospital = [
 ];
 
 var hospitalLayer = L.mapbox.featureLayer();
+// var hospitalLayer = new L.MarkerClusterGroup();
 var patientLayer = L.mapbox.featureLayer();
 
 // var parseDate = d3.time.format("%m/%e/%Y").parse; // 6/7/2015
@@ -47,9 +48,14 @@ function ready(error, data) {
 	getNumber(data);
 	// console.log(hospital);
 
+	$('#total_num').text(data.length);
+	$('#death_num').text(cnt_death);
+
 	data.forEach(function(d) { 
 		d.date = parseDate(d.date);
 	});
+
+	// var markers = new L.MarkerClusterGroup();
 
 	hospital.forEach(function(d) { init(d); });
 	hospitalLayer.addTo(map);
@@ -75,7 +81,7 @@ function init(d) {
 	var lon = d.lon;
 
 	var marker = L.marker([lat, lon], {
-		icon: L.mapbox.marker.icon({ 'marker-color': "#ed526f" })
+		icon: L.mapbox.marker.icon({ 'marker-color': "#ed526f" }) //
 	});
 
 	marker.bindPopup(d.name);
@@ -96,6 +102,7 @@ function init(d) {
 
 var currentDate = '20-May';
 var cnt = 0;
+var cnt_death = 0;
 
 // get number in each hospital
 function getNumber(data) {
@@ -110,6 +117,7 @@ function getNumber(data) {
 
 				if(currentCondition == 'death') {
 					e.death = e.death + 1;
+					cnt_death = cnt_death + 1;
 				}
 			}
 

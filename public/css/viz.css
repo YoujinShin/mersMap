@@ -3,9 +3,9 @@
 	z-index: 10;
 	right: 20px;
 	top: 5%;
-	width: 46%;
+	width: 42%;
 	height: 90%;
-	background-color: rgba(38, 40, 60, 0.65);
+	background-color: rgba(38, 40, 60, 0.68);
 	border-radius: 20px;
 }
 
@@ -14,7 +14,7 @@
 	z-index: 2;
 	right: 20px;
 	top: 5%;
-	width: 46%;
+	width: 42%;
 	height: 90%;
 	background-color: #cfcfcf;
 	opacity: 0;
@@ -26,11 +26,26 @@
 	position: absolute;
 	z-index: 15;
 	right: 20px;
-	width: 46%;
+	width: 42%;
 	text-align: center;
 	color: white;
-	font-size: 18px;
-	top: 10%;
+	font-size: 16px;
+	letter-spacing: 1px;
+	top: 10.2%;
+}
+
+.title2 {
+	position: absolute;
+	z-index: 15;
+	right: 20px;
+	/*width: 21%;*/
+	width: 42%;
+	text-align: center;
+	font-size: 12px; 
+	color: rgba(255,255,255,0.6); 
+	letter-spacing: 1px;
+	top: 14.2%;
+	line-height: 140%;
 }
 
 .text_age {
