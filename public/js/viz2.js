@@ -67,30 +67,30 @@ function initViz(data) {
 
 
     // circle
-	circle = svg.selectAll("circle")
-			.data(data)
-		.enter().append("circle")
-		.attr('cx', function(d) { return xScale(d.date); })
-		.attr('cy', function(d, i) { return yScale(d.y); })
-		.attr("r", function(d) { return 2.6; })
-		.style("fill", function(d) { return getColor(d); })
-		.attr('stroke', 'rgba(0,0,0,0)')
-		.attr('stroke-width', 1.2)
-		.on("mouseover", function(d,i) {
+	// circle = svg.selectAll("circle")
+	// 		.data(data)
+	// 	.enter().append("circle")
+	// 	.attr('cx', function(d) { return xScale(d.date); })
+	// 	.attr('cy', function(d, i) { return yScale(d.y); })
+	// 	.attr("r", function(d) { return 2.6; })
+	// 	.style("fill", function(d) { return getColor(d); })
+	// 	.attr('stroke', 'rgba(0,0,0,0)')
+	// 	.attr('stroke-width', 1.2)
+	// 	.on("mouseover", function(d,i) {
 
-			getName(d.hospital);
+	// 		getName(d.hospital);
 
-			tooltip.text(d.age + '세, ' +  hospitalName);
-			tooltip.style("visibility", "visible");
+	// 		tooltip.text(d.age + '세, ' +  hospitalName);
+	// 		tooltip.style("visibility", "visible");
 
-		})
-		.on("mousemove", function() {
-			tooltip.style("top", (event.pageY - 10) + "px")
-			.style("left", (event.pageX + 12) + "px");
-		})
-		.on("mouseout", function() {
-			tooltip.style("visibility", "hidden");
-		});
+	// 	})
+	// 	.on("mousemove", function() {
+	// 		tooltip.style("top", (event.pageY - 10) + "px")
+	// 		.style("left", (event.pageX + 12) + "px");
+	// 	})
+	// 	.on("mouseout", function() {
+	// 		tooltip.style("visibility", "hidden");
+	// 	});
 }
 
 

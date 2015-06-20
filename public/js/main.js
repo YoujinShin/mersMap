@@ -42,10 +42,12 @@ var width = $('#viz').width(),
 var force = d3.layout.force()
     // .charge(-120)
     .charge(-30)
-    .linkDistance(10)
+    .linkDistance(22)
     .size([width, height]);
 
-var color = d3.scale.category20();
+var rScale = d3.scale.linear() //age
+	.domain([0, 30])
+	.range([2.6, 10]);
 
 queue()
 	.defer(d3.csv, "/data/061615.csv")
@@ -158,6 +160,10 @@ function makeNetwork(graph) {
 		e.target = +e.target;
 	});
 
+	graph.nodes.forEach(function(e) {
+		e.attributes.Degree = +e.attributes.Degree;
+	});
+
 	force
 		.nodes(graph.nodes)
 		.links(graph.links)
@@ -174,12 +180,31 @@ function makeNetwork(graph) {
 		.enter().append("circle")
 		.attr("class", "node")
 		.attr("r", function(d) {
+			console.log('...');
 			console.log(d);
-			return 2.6;
+			return rScale(d.attributes.Degree); //2.6
 		})
-		.style('fill', 'red')
+		.style('fill',  function(d) {
+			// console.log(d.attributes.condition);
+			return getColor(d.attributes);
+		})
 		// .style("fill", function(d) { return color(d.group); })
-		.call(force.drag);
+		.call(force.drag)
+		.on("mouseover", function(d,i) {
+
+			getName(d.attributes.hospital);
+
+			// tooltip.text(d.id);
+			tooltip.text(d.id +', ' +d.attributes.age + '세, ' +  hospitalName);
+			tooltip.style("visibility", "visible");
+		})
+		.on("mousemove", function() {
+			tooltip.style("top", (event.pageY - 10) + "px")
+			.style("left", (event.pageX + 12) + "px");
+		})
+		.on("mouseout", function() {
+			tooltip.style("visibility", "hidden");
+		});
 
 	// // node.append("title")
 	// // 	.text(function(d) {
