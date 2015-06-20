@@ -26,8 +26,10 @@ var hospital = [
 	{name: '송태의 내과', num: 0, lat: 37.503721, lon: 127.089854, icon: 'songtaeui', y: 0, death: 0},
 	{name: '건국대병원', num: 0, lat: 37.540958, lon: 127.079305, icon: 'gunguk', y: 0, death: 0},
 	{name: '평택굿모닝병원', num: 0, lat: 36.990843, lon: 127.12025, icon: 'goodmorning', y: 0, death: 0},
-	{name: '강동 경희대학교의대병원', num: 0, lat: 37.553714, lon: 127.157663, icon: 'kangdong', y: 0, death: 0}
+	{name: '강동 경희대학교의대병원', num: 0, lat: 37.553714, lon: 127.157663, icon: 'kangdong', y: 0, death: 0},
+	{name: '아산충무병원', num: 0, lat: 36.780079, lon: 127.020105, icon: 'asancm', y: 0, death: 0}
 ];
+//아산충무병원	asancm
 
 var hospitalLayer = L.mapbox.featureLayer();
 // var hospitalLayer = new L.MarkerClusterGroup();
@@ -39,10 +41,10 @@ var parseDate = d3.time.format("%e-%b").parse; // 7-Jun
 var width = $('#viz').width(),
 	height = $('#viz').height();
 
-var force = d3.layout.force()
+force = d3.layout.force()
     // .charge(-120)
     .charge(-30)
-    .linkDistance(22)
+    .linkDistance(20)
     .size([width, height]);
 
 var rScale = d3.scale.linear() //age
@@ -50,7 +52,7 @@ var rScale = d3.scale.linear() //age
 	.range([2.6, 10]);
 
 queue()
-	.defer(d3.csv, "/data/061615.csv")
+	.defer(d3.csv, "/data/061617.csv")
 	.defer(d3.json, "/data/graph.json")
 	// .defer(d3.json, "/data/graph_test.json")
 	.await(ready);
@@ -169,19 +171,19 @@ function makeNetwork(graph) {
 		.links(graph.links)
 		.start();
 
-	var link = svg.selectAll(".link")
+	link = svg.selectAll(".link")
 		.data(graph.links)
 		.enter().append("line")
 		.attr("class", "link");
 		// .style("stroke-width", function(d) { return Math.sqrt(d.value); });
 
-	var node = svg.selectAll(".node")
+	node = svg.selectAll(".node")
 		.data(graph.nodes)
 		.enter().append("circle")
 		.attr("class", "node")
 		.attr("r", function(d) {
-			console.log('...');
-			console.log(d);
+			// console.log('...');
+			// console.log(d);
 			return rScale(d.attributes.Degree); //2.6
 		})
 		.style('fill',  function(d) {

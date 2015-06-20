@@ -1,6 +1,6 @@
 var width = $('#viz').width(),
 	height = $('#viz').height();
-	
+
 var hospitalName;
 
 var svg = d3.select('#viz').append('svg')
@@ -41,6 +41,7 @@ function initViz(data) {
 	line_age = svg.selectAll("line")
 			.data(ages)
 		.enter().append("line")
+		.attr('class', 'line_age')
 		.attr('x1', function() { return 70; })
 		.attr('x2', function() { return width - 70; })
 		.attr('y1', function(d) { return yScale2(0); })
@@ -51,6 +52,7 @@ function initViz(data) {
 	text_age = svg.selectAll("text")
 			.data(ages)
 		.enter().append("text")
+		.attr('class', 'text_age')
 		.attr('class', 'text_age')
 		.text(function(d) { return d +'세'; })
 		.attr('x', function() { return width - 70 + 10; })
@@ -67,30 +69,31 @@ function initViz(data) {
 
 
     // circle
-	// circle = svg.selectAll("circle")
-	// 		.data(data)
-	// 	.enter().append("circle")
-	// 	.attr('cx', function(d) { return xScale(d.date); })
-	// 	.attr('cy', function(d, i) { return yScale(d.y); })
-	// 	.attr("r", function(d) { return 2.6; })
-	// 	.style("fill", function(d) { return getColor(d); })
-	// 	.attr('stroke', 'rgba(0,0,0,0)')
-	// 	.attr('stroke-width', 1.2)
-	// 	.on("mouseover", function(d,i) {
+	circle = svg.selectAll("circle")
+			.data(data)
+		.enter().append("circle")
+		.attr('class', 'circles')
+		.attr('cx', function(d) { return xScale(d.date); })
+		.attr('cy', function(d, i) { return yScale(d.y); })
+		.attr("r", function(d) { return 2.6; })
+		.style("fill", function(d) { return getColor(d); })
+		.attr('stroke', 'rgba(0,0,0,0)')
+		.attr('stroke-width', 1.2)
+		.on("mouseover", function(d,i) {
 
-	// 		getName(d.hospital);
+			getName(d.hospital);
 
-	// 		tooltip.text(d.age + '세, ' +  hospitalName);
-	// 		tooltip.style("visibility", "visible");
+			tooltip.text(d.age + '세, ' +  hospitalName);
+			tooltip.style("visibility", "visible");
 
-	// 	})
-	// 	.on("mousemove", function() {
-	// 		tooltip.style("top", (event.pageY - 10) + "px")
-	// 		.style("left", (event.pageX + 12) + "px");
-	// 	})
-	// 	.on("mouseout", function() {
-	// 		tooltip.style("visibility", "hidden");
-	// 	});
+		})
+		.on("mousemove", function() {
+			tooltip.style("top", (event.pageY - 10) + "px")
+			.style("left", (event.pageX + 12) + "px");
+		})
+		.on("mouseout", function() {
+			tooltip.style("visibility", "hidden");
+		});
 }
 
 

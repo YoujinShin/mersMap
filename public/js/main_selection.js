@@ -10,11 +10,23 @@ function mouseClickLayer(e) {
 		});
 
 		if(hospital_name == name) {
-			// d3.select(this).transition().duration(100).attr('r' , 3);
-			// d3.select(this).attr('stroke', '#ed526f');
 			d3.select(this).attr('opacity', 1);
 		} else {
-			// d3.select(this).transition().duration(100).attr('r' , 2.6)
+			d3.select(this).transition().duration(100)
+				.attr('opacity', 0.1);
+		}
+	});
+
+	node.each(function(d) {
+		// console.log(d.attributes.hospital);
+		var name2;
+		hospital.forEach(function(f) {
+			if(d.attributes.hospital == f.icon) { name2 = f.name; }
+		});
+
+		if(hospital_name == name2) {
+			d3.select(this).attr('opacity', 1);
+		} else {
 			d3.select(this).transition().duration(100)
 				.attr('opacity', 0.1);
 		}
@@ -32,4 +44,11 @@ function popupClose(e) {
 		d3.select(this).transition().duration(100)
 			.attr('opacity', 1);
 	});
+
+	node.each(function(d) {
+		d3.select(this).transition().duration(100)
+			.attr('opacity', 1);
+	});
 }
+
+

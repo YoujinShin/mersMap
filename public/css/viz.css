@@ -38,7 +38,6 @@
 	position: absolute;
 	z-index: 15;
 	right: 20px;
-	/*width: 21%;*/
 	width: 42%;
 	text-align: center;
 	font-size: 12px; 
@@ -50,7 +49,6 @@
 
 .text_age {
 	font-family: 'Namsan', sans-serif;
-	/*background-color: rgba(0,0,0,0.6) !important;*/
 	font-size: 11px;
 	fill: rgba(255,255,255,0.9);
 	stroke: none;
@@ -59,9 +57,23 @@
 .node {
   stroke: #fff;
   stroke-width: 0px;
+  visibility: hidden;
 }
 
 .link {
   stroke: #999;
   stroke-opacity: .6;
+  visibility: hidden;
+}
+
+.circles {
+	/*visibility: hidden;*/
+}
+
+.line_age {
+
+}
+
+.text_age {
+
 }
