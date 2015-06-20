@@ -53,7 +53,8 @@ var rScale = d3.scale.linear() //age
 
 queue()
 	.defer(d3.csv, "/data/061617.csv")
-	.defer(d3.json, "/data/graph.json")
+	// .defer(d3.json, "/data/graph.json")
+	.defer(d3.json, "/data/graph2.json")
 	// .defer(d3.json, "/data/graph_test.json")
 	.await(ready);
 
@@ -182,21 +183,16 @@ function makeNetwork(graph) {
 		.enter().append("circle")
 		.attr("class", "node")
 		.attr("r", function(d) {
-			// console.log('...');
-			// console.log(d);
 			return rScale(d.attributes.Degree); //2.6
 		})
 		.style('fill',  function(d) {
-			// console.log(d.attributes.condition);
 			return getColor(d.attributes);
 		})
-		// .style("fill", function(d) { return color(d.group); })
 		.call(force.drag)
 		.on("mouseover", function(d,i) {
 
 			getName(d.attributes.hospital);
 
-			// tooltip.text(d.id);
 			tooltip.text(d.id +', ' +d.attributes.age + '세, ' +  hospitalName);
 			tooltip.style("visibility", "visible");
 		})
