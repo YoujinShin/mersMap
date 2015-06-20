@@ -14,7 +14,7 @@ var tooltip = d3.select("body")
 var parseDate2 = d3.time.format("%e-%b").parse;
 
 var xScale = d3.time.scale()
-	.domain([ parseDate2('20-May'), parseDate2('16-Jun') ])
+	.domain([ parseDate2('20-May'), parseDate2('18-Jun') ])
 	// .domain([ parseDate2('19-May'), parseDate2('17-Jun') ])
 	// .range([70, width - 70]);
 	.range([70, width - 70]);

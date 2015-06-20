@@ -3,7 +3,7 @@ L.mapbox.accessToken = 'pk.eyJ1IjoibWVnZ29uYWd1bCIsImEiOiI1cFpUOE5RIn0.jooCCIM58
 var map = L.map('map', {
 	minZoom: 6,
 	maxZoom: 19
-}).setView([36.9644354,127.7088928+0.1], 9);
+}).setView([36.9644354-0.0,127.7088928+1], 8);
 
 // MapID: https://www.mapbox.com/developers/api/maps/
 // grey: examples.map-20v6611k

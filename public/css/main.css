@@ -52,8 +52,9 @@ h1 {
 	left: 20px;
 	bottom: 20px;
 	width: 80px;
-	height: 180px;
+	height: 260px;
 	border-radius: 10px;
+	background-color: rgba(38, 40, 60, 0.65);
 	/*background-color: rgba(0,0,0, 0.6);*/
 	/*background-color: rgba(0,0,0, 0.6);*/
 }
@@ -119,8 +120,8 @@ h1 {
 	width: 60px;
 	height: 60px;
 	border-radius: 60px;
-	/*background-color: rgba(255,255,255,0.2);*/
-	background-color: rgba(0,0,0,0.2);
+	background-color: rgba(255,255,255,0.2);
+	/*background-color: rgba(0,0,0,0.2);*/
 	color: white;
 	font-size: 11px;
 	text-align: center;
@@ -137,8 +138,8 @@ h1 {
 	width: 60px;
 	height: 60px;
 	border-radius: 60px;
-	/*background-color: rgba(255,255,255,0.2);*/
-	background-color: rgba(0,0,0,0.2);
+	background-color: rgba(255,255,255,0.2);
+	/*background-color: rgba(0,0,0,0.2);*/
 	color: white;
 	font-size: 11px;
 	text-align: center;
@@ -154,7 +155,8 @@ h1 {
 }
 
 .leaflet-bar, .leaflet-control-layers {
-	background-color: rgba(255,255,255,0.6);
+	/*background-color: rgba(38, 40, 60, 0.8);*/
+	background-color: rgba(255,255,255,0.9);
 	border-color: rgba(255,255,255,0);
 }
 

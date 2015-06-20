@@ -24,8 +24,8 @@ $('#icon_patient').mouseout(function() { $(this).css('opacity','1'); });
 
 $('#icon_time').click(function() {
 	$('#icon_time').css('background-color','#ed526f');
-	$('#icon_age').css('background-color', 'rgba(0,0,0,0.2)');
-	$('#icon_network').css('background-color', 'rgba(0,0,0,0.2)');
+	$('#icon_age').css('background-color', 'rgba(255,255,255,0.2)');
+	$('#icon_network').css('background-color', 'rgba(255,255,255,0.2)');
 
 	byTime();
 	$('.node').css('visibility', 'hidden');
@@ -39,8 +39,8 @@ $('#icon_time').click(function() {
 
 $('#icon_age').click(function() {
 	$('#icon_age').css('background-color','#ed526f');
-	$('#icon_time').css('background-color', 'rgba(0,0,0,0.2)');
-	$('#icon_network').css('background-color', 'rgba(0,0,0,0.2)');
+	$('#icon_time').css('background-color', 'rgba(255,255,255,0.2)');
+	$('#icon_network').css('background-color', 'rgba(255,255,255,0.2)');
 
 	byAge();
 	$('.node').css('visibility', 'hidden');
@@ -53,8 +53,8 @@ $('#icon_age').click(function() {
 });
 
 $('#icon_network').click(function() {
-	$('#icon_age').css('background-color','rgba(0,0,0,0.2)');
-	$('#icon_time').css('background-color', 'rgba(0,0,0,0.2)');
+	$('#icon_age').css('background-color','rgba(255,255,255,0.2)');
+	$('#icon_time').css('background-color', 'rgba(255,255,255,0.2)');
 	$('#icon_network').css('background-color', '#ed526f');
 
 	// byAge();
