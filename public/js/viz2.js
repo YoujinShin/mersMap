@@ -1,8 +1,6 @@
 var width = $('#viz').width(),
-	height = $('#viz').height(),
-	padding = 3, // separation between nodes
-	maxRadius = 14;
-
+	height = $('#viz').height();
+	
 var hospitalName;
 
 var svg = d3.select('#viz').append('svg')
@@ -26,7 +24,7 @@ var yScale = d3.scale.linear()
 	.range([height - 80, 120]);
 
 var yScale2 = d3.scale.linear() //age
-	.domain([0, 100])
+	.domain([0, 110])
 	.range([height - 80, 120]);
 
 var xAxis = d3.svg.axis()

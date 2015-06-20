@@ -36,14 +36,26 @@ var patientLayer = L.mapbox.featureLayer();
 // var parseDate = d3.time.format("%m/%e/%Y").parse; // 6/7/2015
 var parseDate = d3.time.format("%e-%b").parse; // 7-Jun
 
+var width = $('#viz').width(),
+	height = $('#viz').height();
+
+var force = d3.layout.force()
+    // .charge(-120)
+    .charge(-30)
+    .linkDistance(10)
+    .size([width, height]);
+
+var color = d3.scale.category20();
 
 queue()
 	.defer(d3.csv, "/data/061615.csv")
+	.defer(d3.json, "/data/graph.json")
+	// .defer(d3.json, "/data/graph_test.json")
 	.await(ready);
 
 
 // ready
-function ready(error, data) {
+function ready(error, data, graph) {
 
 	getNumber(data);
 	// console.log(hospital);
@@ -67,6 +79,9 @@ function ready(error, data) {
 	});
 
 	initViz(data);
+
+	// console.log(graph);
+	makeNetwork(graph);
 }
 
 
@@ -136,6 +151,52 @@ function getNumber(data) {
 }
 
 
+function makeNetwork(graph) {
+
+	graph.links.forEach(function(e) {
+		e.source = +e.source; // string to number
+		e.target = +e.target;
+	});
+
+	force
+		.nodes(graph.nodes)
+		.links(graph.links)
+		.start();
+
+	var link = svg.selectAll(".link")
+		.data(graph.links)
+		.enter().append("line")
+		.attr("class", "link");
+		// .style("stroke-width", function(d) { return Math.sqrt(d.value); });
+
+	var node = svg.selectAll(".node")
+		.data(graph.nodes)
+		.enter().append("circle")
+		.attr("class", "node")
+		.attr("r", function(d) {
+			console.log(d);
+			return 2.6;
+		})
+		.style('fill', 'red')
+		// .style("fill", function(d) { return color(d.group); })
+		.call(force.drag);
+
+	// // node.append("title")
+	// // 	.text(function(d) {
+	// // 		return d.id; 
+	// // 		// return d.name; 
+	// // 	});
+
+	force.on("tick", function() {
+		link.attr("x1", function(d) { return d.source.x; })
+			.attr("y1", function(d) { return d.source.y; })
+			.attr("x2", function(d) { return d.target.x; })
+			.attr("y2", function(d) { return d.target.y; });
+
+		node.attr("cx", function(d) { return d.x; })
+			.attr("cy", function(d) { return d.y; });
+	});
+}
 
 
 

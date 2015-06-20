@@ -24,18 +24,19 @@ h1 {
 	top: 5%;
 	padding-left: 40px;
 	padding-right: 40px;
-	padding-top: 18px;
-	padding-bottom: 18px;
+	padding-top: 14px;
+	padding-bottom: 14px;
 	z-index: 10;
 	background-color: rgba(38, 40, 60, 0.65);
 	/*background-color: rgba(0,0,0, 0.6);*/
-	border-radius: 10px;
+	border-radius: 20px;
 	font-size: 18px;
 	color: rgba(255,255,255,1);
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	text-align: center;
 	margin: 0px;
+	line-height: 120%;
 
 	font-weight: 400;
 }
@@ -96,20 +97,39 @@ h1 {
 	position: absolute;
 	z-index: 10;
 	left: 30px;
-	bottom: 120px;
+	bottom: 200px;
 	width: 60px;
 	height: 60px;
 	border-radius: 60px;
 	background-color: #ed526f;
 
 	color: white;
-	font-size: 14px;
+	font-size: 11px;
 	text-align: center;
 	letter-spacing: 2px;
-	line-height: 145%;
+	/*line-height: 145%;*/
+	line-height: 184%;
 }
 
 #icon_age {
+	position: absolute;
+	z-index: 10;
+	left: 30px;
+	bottom: 120px;
+	width: 60px;
+	height: 60px;
+	border-radius: 60px;
+	/*background-color: rgba(255,255,255,0.2);*/
+	background-color: rgba(0,0,0,0.2);
+	color: white;
+	font-size: 11px;
+	text-align: center;
+	letter-spacing: 2px;
+	line-height: 184%;
+	/*line-height: 145%;*/
+}
+
+#icon_network {
 	position: absolute;
 	z-index: 10;
 	left: 30px;
@@ -120,11 +140,13 @@ h1 {
 	/*background-color: rgba(255,255,255,0.2);*/
 	background-color: rgba(0,0,0,0.2);
 	color: white;
-	font-size: 14px;
+	font-size: 11px;
 	text-align: center;
 	letter-spacing: 2px;
-	line-height: 145%;
+	line-height: 184%;
+	/*line-height: 145%;*/
 }
+
 
 .leaflet-top .leaflet-control {
 	margin-top: 160px !important;

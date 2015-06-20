@@ -20,7 +20,10 @@
 	<link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
 
 	<h1>메르스 지도
-		<br><span style="font-size: 10px; color: rgba(255,255,255,0.8)">Mers Map in South Korea</span>
+		<!-- <br><span style="font-size: 10px; color: rgba(255,255,255,0.8)">Mers Map in South Korea</span> -->
+		<br><span style="font-size: 11px; color: rgba(255,255,255,0.8)">
+			확진자 병원 위치 별 데이터
+		</span>
 	</h1>
 
 	<div id="title">
@@ -33,7 +36,8 @@
 		<!-- <hr style="width: 90%; opacity: 0.3; stroke:red"> -->
 	</div>
 	<div class="title2">
-		| 확진자 <span id="total_num">164</span>명 중 사망 <span id="death_num">30</span>명
+		| 확진자 <span id="total_num">164</span>명 중 사망 
+		  <span id="death_num" style="color:#ed526f; font-weight: bold;">30</span>명
 	</div>
 
 <!-- 	<div id="icon_set"></div>
@@ -41,8 +45,10 @@
 	<div id='icon_patient'><br>밀도</div> -->
 
 	<div id="icon_set"></div>
-	<div id='icon_age'><br>나이별</div>
+	
 	<div id='icon_time'><br>시간별</div>
+	<div id='icon_age'><br>나이별</div>
+	<div id='icon_network'><br>감염경로</div>
 
 	<div class='custom-popup' id='map'></div> 
 

@@ -5,7 +5,7 @@
 	top: 5%;
 	width: 42%;
 	height: 90%;
-	background-color: rgba(38, 40, 60, 0.68);
+	background-color: rgba(38, 40, 60, 0.7);
 	border-radius: 20px;
 }
 
@@ -54,4 +54,14 @@
 	font-size: 11px;
 	fill: rgba(255,255,255,0.9);
 	stroke: none;
+}
+
+.node {
+  stroke: #fff;
+  stroke-width: 0px;
+}
+
+.link {
+  stroke: #999;
+  stroke-opacity: .6;
 }
