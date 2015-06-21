@@ -23,11 +23,13 @@
 	<link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
 
 
-	<h1>메르스 지도
-		<!-- <br><span style="font-size: 10px; color: rgba(255,255,255,0.8)">Mers Map in South Korea</span> -->
-		<br><span style="font-size: 11px; color: rgba(255,255,255,0.8)">
-			확진자 병원 위치 별 데이터
+	<h1>메르스 현황
+		<br><span style="font-size: 10px; color: rgba(255,255,255,0.8)">
+		Mers Spread in S.Korea
 		</span>
+		<!-- <br><span style="font-size: 11px; color: rgba(255,255,255,0.8)">
+			확진자 병원 위치 별 데이터
+		</span> -->
 	</h1>
 
 
@@ -41,8 +43,13 @@
 		<!-- <hr style="width: 90%; opacity: 0.3; stroke:red"> -->
 	</div>
 	<div class="title2">
-		| 확진자 <span id="total_num">164</span>명 중 사망 
+		확진자 <span id="total_num">164</span>명 중 사망 
 		  <span id="death_num" style="color:#ed526f; font-weight: bold;">30</span>명
+
+		<br>
+
+		| Patients <span id="total_num2">164</span>, Deaths 
+		  <span id="death_num2" style="color:#ed526f; font-weight: bold;">30</span>
 	</div>
 
 
@@ -55,9 +62,17 @@
 	<!-- mode buttons -->
 	<div id="icon_set"></div>
 	
-	<div id='icon_time'><br>시간별</div>
-	<div id='icon_age'><br>나이별</div>
-	<div id='icon_network'><br>감염경로</div>
+	<div id='icon_time'><br>시간별<br> 
+		<span style="letter-spacing: 1px; font-size: 8px; color: rgba(255,255,255,0.8)">Time<span>
+	</div>
+	<div id='icon_age'><br>나이별<br> 
+		<span style="letter-spacing: 1px; font-size: 8px; color: rgba(255,255,255,0.8)">
+		Age</span>
+		</div>
+	<div id='icon_network'><br>감염경로<br> 
+		<span style="letter-spacing: 1px; font-size: 8px; color: rgba(255,255,255,0.8)">
+		Network</span>
+	</div>
 
 	<div class='custom-popup' id='map'></div> 
 	<div id='bg'></div>

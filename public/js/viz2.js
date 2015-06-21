@@ -21,11 +21,11 @@ var xScale = d3.time.scale()
 
 var yScale = d3.scale.linear()
 	.domain([0, 38])
-	.range([height - 80, 120]);
+	.range([height - 90, 110]);
 
 var yScale2 = d3.scale.linear() //age
 	.domain([0, 110])
-	.range([height - 80, 120]);
+	.range([height - 90, 110]);
 
 var xAxis = d3.svg.axis()
 	.scale(xScale)
