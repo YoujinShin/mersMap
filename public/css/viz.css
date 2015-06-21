@@ -1,25 +1,25 @@
 #viz {
 	position: absolute;
 	z-index: 10;
-	right: 20px;
-	top: 5%;
-	width: 42%;
-	height: 90%;
+	right: 0px;
+	top: 0px;
+	width: 46%;
+	height: 100%;
 	/*background-color: rgba(0,0,0,0.7);*/
 	background-color: rgba(38, 40, 60, 0.8);
-	border-radius: 20px;
+	border-radius: 0px;
 }
 
 #viz2 {
 	position: absolute;
 	z-index: 10;
-	right: 20px;
-	top: 5%;
-	width: 42%;
-	height: 90%;
+	right: 0px;
+	top: 0px;
+	width: 46%;
+	height: 100%;
 	/*background-color: rgba(0,0,0,0.7);*/
 	background-color: rgba(38, 40, 60, 0.8);
-	border-radius: 20px;
+	border-radius: 0px;
 	visibility: hidden;
 }
 
@@ -27,9 +27,9 @@
 	position: absolute;
 	z-index: 2;
 	right: 20px;
-	top: 5%;
-	width: 42%;
-	height: 90%;
+	top: 0px;
+	width: 46%;
+	height: 100%;
 	background-color: #cfcfcf;
 	opacity: 0;
 	border-radius: 20px;
@@ -39,13 +39,13 @@
 #title {
 	position: absolute;
 	z-index: 15;
-	right: 20px;
-	width: 42%;
+	right: 0px;
+	width: 46%;
 	text-align: center;
 	color: white;
 	font-size: 16px;
 	letter-spacing: 1px;
-	top: 5%;
+	top: 0px;
 	padding-top: 30px;
 	padding-bottom: 20px;
 	background-color: rgba(255,255,255,0.08);
@@ -54,14 +54,14 @@
 .title2 {
 	position: absolute;
 	z-index: 15;
-	right: 20px;
-	width: 42%;
+	right: 0px;
+	width: 46%;
 	text-align: center;
 	font-size: 12px; 
 	color: rgba(255,255,255,0.6); 
 	/*background-color: rgba(255,255,255,0.1);*/
 	letter-spacing: 1px;
-	top: 5%;
+	top: 0px;
 	padding-top: 54px;
 	line-height: 140%;
 }
@@ -96,3 +96,45 @@
 .text_age {
 
 }
+
+#zoom_in {
+	position: absolute;
+	z-index: 30;
+	font-size: 16px;
+	right: 20px;
+	bottom: 77px;
+
+	width: 26px;
+	height: 26px;
+	text-align: center;
+	background-color: rgba(255,255,255,0.2);
+	color: white;
+	line-height: 62.5%;
+
+	visibility: hidden;
+}
+
+#zoom_out {
+	position: absolute;
+	z-index: 30;
+	font-size: 16px;
+	right: 20px;
+	bottom: 50px;
+
+	width: 26px;
+	height: 26px;
+	text-align: center;
+	background-color: rgba(255,255,255,0.2);
+	color: white;
+	line-height: 62.8%;
+
+	visibility: hidden;
+}
+
+
+
+
+
+
+
+

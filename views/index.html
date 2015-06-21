@@ -22,16 +22,6 @@
 	<link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
 	<link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
 
-	<div id="vizcontainer" style="width:100%;height:100%">
-		<svg id="graphSVG" style="border:1px lightgray solid;">
-				<g id="graphG" />
-			<div id="modal">
-				<div id="content"></div>
-				<button id="modalClose" onclick="nodeFocus=false;nodeOut();d3.select('#modal').style('display','none');">X</button>
-			</div>
-	</div>
-	<div id="controls">
-	</div>
 
 	<h1>메르스 지도
 		<!-- <br><span style="font-size: 10px; color: rgba(255,255,255,0.8)">Mers Map in South Korea</span> -->
@@ -39,6 +29,7 @@
 			확진자 병원 위치 별 데이터
 		</span>
 	</h1>
+
 
 	<div id="title">
 		6월 17일자 확진자 데이터
@@ -54,6 +45,13 @@
 		  <span id="death_num" style="color:#ed526f; font-weight: bold;">30</span>명
 	</div>
 
+
+
+	<!-- zoom control buttons -->
+	<div id="zoom_in"> <br> + </div>
+	<div id="zoom_out"> <br> - </div>
+
+
 	<!-- mode buttons -->
 	<div id="icon_set"></div>
 	
@@ -62,7 +60,6 @@
 	<div id='icon_network'><br>감염경로</div>
 
 	<div class='custom-popup' id='map'></div> 
-
 	<div id='bg'></div>
 	<div id='viz'></div>
 	<div id='viz2'></div>

@@ -6,6 +6,12 @@ $('#icon_hospital').mouseout(function() { $(this).css('opacity','1'); });
 $('#icon_patient').mouseover(function() { $(this).css('opacity','0.6'); });
 $('#icon_patient').mouseout(function() { $(this).css('opacity','1'); });
 
+$('#zoom_in').mouseover(function() { $(this).css('opacity','0.6'); });
+$('#zoom_in').mouseout(function() { $(this).css('opacity','1'); });
+
+$('#zoom_out').mouseover(function() { $(this).css('opacity','0.6'); });
+$('#zoom_out').mouseout(function() { $(this).css('opacity','1'); });
+
 
 $('#icon_time').click(function() {
 	$('#icon_time').css('background-color','#ed526f');
@@ -23,6 +29,8 @@ $('#icon_time').click(function() {
 
 	$('#viz').css('visibility', 'visible');
 	$('#viz2').css('visibility', 'hidden');
+	$('#zoom_in').css('visibility', 'hidden');
+	$('#zoom_out').css('visibility', 'hidden')
 });
 
 $('#icon_age').click(function() {
@@ -41,6 +49,8 @@ $('#icon_age').click(function() {
 
 	$('#viz').css('visibility', 'visible');
 	$('#viz2').css('visibility', 'hidden');
+	$('#zoom_in').css('visibility', 'hidden');
+	$('#zoom_out').css('visibility', 'hidden');
 });
 
 $('#icon_network').click(function() {
@@ -59,6 +69,15 @@ $('#icon_network').click(function() {
 
 	$('#viz2').css('visibility', 'visible');
 	$('#viz').css('visibility', 'hidden');
+	$('#zoom_in').css('visibility', 'visible');
+	$('#zoom_out').css('visibility', 'visible');
+
+	sigma.misc.animation.camera(c, {
+      // ratio: c.ratio / c.settings('zoomingRatio')
+      ratio: 0.47
+    }, {
+      duration: 200
+    });  
 
 	// loadGraph('lm.gexf');
 	// force.resume();

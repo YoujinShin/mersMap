@@ -59,41 +59,6 @@ h1 {
 	/*background-color: rgba(0,0,0, 0.6);*/
 }
 
-/*
-#icon_hospital {
-	position: absolute;
-	z-index: 10;
-	left: 30px;
-	bottom: 120px;
-	width: 60px;
-	height: 60px;
-	border-radius: 60px;
-	background-color: #ed526f;
-
-	color: white;
-	font-size: 14px;
-	text-align: center;
-	letter-spacing: 2px;
-	line-height: 145%;
-}
-
-#icon_patient {
-	position: absolute;
-	z-index: 10;
-	left: 30px;
-	bottom: 40px;
-	width: 60px;
-	height: 60px;
-	border-radius: 60px;
-	background-color: rgba(255,255,255,0.2);
-	color: white;
-	font-size: 14px;
-	text-align: center;
-	letter-spacing: 2px;
-	line-height: 145%;
-}
-*/
-
 #icon_time {
 	position: absolute;
 	z-index: 10;
@@ -217,7 +182,7 @@ h1 {
 	position: absolute;
 	z-index: 30; 
 	right: 20px;
-	bottom: 12%;
+	top: 100px;
 	text-align: center;
 	padding: 10px;  
 	padding-left: 14px;
@@ -228,7 +193,7 @@ h1 {
 	pointer-events: none;
 	letter-spacing: 1px;
 	color: #fff;
-	background-color: rgba(0,0,0,0.2);
+	/*background-color: rgba(0,0,0,0.2);*/
 	visibility: hidden;
 }
 

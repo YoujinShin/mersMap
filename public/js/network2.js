@@ -24,6 +24,7 @@ sigma.classes.graph.addMethod('neighbors', function(nodeId) {
 // define s
 s = new sigma({
   graph:g,
+  // container: 'body',
   container: 'viz2',
   settings: {
       // enableHovering: false,
@@ -33,13 +34,15 @@ s = new sigma({
       defaultLabelSize: 10,
       defaultLabelColor: '#fff',
       font: 'Namsan',
-      hoverFont: 'Namsan'
+      hoverFont: 'Namsan',
+      maxEdgeSize: 0.6
+      // zoomMin: 1
     }
 });
 
 // load gexf file
 sigma.parsers.gexf(
-  'lm.gexf',
+  'lm4.gexf',
   s,
   function() {
 
@@ -126,4 +129,41 @@ function filterNodes(hospital_name) {
 
   s.refresh();
 }
+
+// camera
+c = s.camera;
+$(document).ready(function(){
+  // zoom_in
+  $("#zoom_in").bind("click",function(){
+    // c.goTo({
+    //   ratio: c.ratio / c.settings('zoomingRatio')
+    // }); 
+    sigma.misc.animation.camera(c, {
+      ratio: c.ratio / c.settings('zoomingRatio')
+    }, {
+      duration: 200
+    });  
+  });
+
+  // zoom_out
+  $("#zoom_out").bind("click",function(){
+
+    // console.log(c.ratio);
+    // c.goTo({
+    //   ratio: c.ratio * c.settings('zoomingRatio')
+    // });   
+    sigma.misc.animation.camera(c, {
+      ratio: c.ratio * c.settings('zoomingRatio')
+    }, {
+      duration: 200
+    });
+  });
+
+});
+
+
+
+
+
+
 
