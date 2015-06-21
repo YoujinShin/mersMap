@@ -76,7 +76,7 @@ $('#icon_network').click(function() {
 		// ratio: c.ratio / c.settings('zoomingRatio')
 		ratio: 0.28,
 		x: -60, 
-    	y: 10
+    	y: 20
     }, {
     	duration: 800
     });

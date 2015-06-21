@@ -67,6 +67,8 @@ function ready(error, data, graph) {
 
 	$('#total_num').text(data.length);
 	$('#death_num').text(cnt_death);
+	$('#total_num2').text(data.length);
+	$('#death_num2').text(cnt_death);
 
 	data.forEach(function(d) { 
 		d.date = parseDate(d.date);

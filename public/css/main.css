@@ -224,3 +224,14 @@ h2 {
 	visibility: hidden;
 }
 
+
+#ref {
+	position: absolute;
+	left: 56%;
+	bottom: 10px;
+	z-index: 20;
+	font-family: 'Namsan', sans-serif;
+	font-size:11px;
+	color: rgba(255,255,255,0.7);
+	letter-spacing: 1px;
+}
