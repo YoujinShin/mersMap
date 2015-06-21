@@ -84,8 +84,6 @@ function ready(error, data, graph) {
 	});
 
 	initViz(data);
-
-	// console.log(graph);
 	// makeNetwork(graph);
 }
 

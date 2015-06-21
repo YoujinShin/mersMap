@@ -212,3 +212,23 @@ h1 {
 	visibility: hidden;
 }
 
+#tooltip2 {   
+	font-family: 'Namsan', sans-serif;
+	position: absolute;
+	z-index: 30; 
+	right: 20px;
+	bottom: 12%;
+	text-align: center;
+	padding: 10px;  
+	padding-left: 14px;
+	padding-right: 14px;     
+	font-size: 12px;
+	border: 1px;
+	/*border-radius: 4px;*/
+	pointer-events: none;
+	letter-spacing: 1px;
+	color: #fff;
+	background-color: rgba(0,0,0,0.2);
+	visibility: hidden;
+}
+
