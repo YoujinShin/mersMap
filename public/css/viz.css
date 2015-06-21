@@ -10,6 +10,19 @@
 	border-radius: 20px;
 }
 
+#viz2 {
+	position: absolute;
+	z-index: 10;
+	right: 20px;
+	top: 5%;
+	width: 42%;
+	height: 90%;
+	/*background-color: rgba(0,0,0,0.7);*/
+	background-color: rgba(38, 40, 60, 0.8);
+	border-radius: 20px;
+	visibility: hidden;
+}
+
 #bg {
 	position: absolute;
 	z-index: 2;
@@ -83,3 +96,15 @@
 .text_age {
 
 }
+
+/*#sigma-container {
+	position: absolute;
+	z-index: 400;
+	top: 0px;
+	left: 0px;
+    width: 800px;
+    height: 500px;
+    margin: auto;
+    background-color: black;
+  }
+*/

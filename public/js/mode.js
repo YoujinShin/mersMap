@@ -1,3 +1,9 @@
+// $.ajax({
+
+//         async : true
+
+//     });
+
 // mouseover
 $('#icon_hospital').mouseover(function() { $(this).css('opacity','0.6'); });
 $('#icon_hospital').mouseout(function() { $(this).css('opacity','1'); });
@@ -35,6 +41,9 @@ $('#icon_time').click(function() {
 	$('.line_age').css('visibility', 'visible');
 	$('.text_age').css('visibility', 'visible');
 	$('.axis').css('visibility', 'visible');
+
+	$('#viz').css('visibility', 'visible');
+	$('#viz2').css('visibility', 'hidden');
 });
 
 $('#icon_age').click(function() {
@@ -50,6 +59,9 @@ $('#icon_age').click(function() {
 	$('.line_age').css('visibility', 'visible');
 	$('.text_age').css('visibility', 'visible');
 	$('.axis').css('visibility', 'visible');
+
+	$('#viz').css('visibility', 'visible');
+	$('#viz2').css('visibility', 'hidden');
 });
 
 $('#icon_network').click(function() {
@@ -66,7 +78,11 @@ $('#icon_network').click(function() {
 	$('.text_age').css('visibility', 'hidden');
 	$('.axis').css('visibility', 'hidden');
 
-	force.resume();
+	$('#viz2').css('visibility', 'visible');
+	$('#viz').css('visibility', 'hidden');
+
+	// loadGraph('lm.gexf');
+	// force.resume();
 });
 
 

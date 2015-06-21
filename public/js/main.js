@@ -41,11 +41,11 @@ var parseDate = d3.time.format("%e-%b").parse; // 7-Jun
 var width = $('#viz').width(),
 	height = $('#viz').height();
 
-force = d3.layout.force()
-    // .charge(-120)
-    .charge(-30)
-    .linkDistance(20)
-    .size([width, height]);
+// force = d3.layout.force()
+//     // .charge(-120)
+//     .charge(-30)
+//     .linkDistance(20)
+//     .size([width, height]);
 
 var rScale = d3.scale.linear() //age
 	.domain([0, 30])
@@ -86,7 +86,7 @@ function ready(error, data, graph) {
 	initViz(data);
 
 	// console.log(graph);
-	makeNetwork(graph);
+	// makeNetwork(graph);
 }
 
 
@@ -156,70 +156,70 @@ function getNumber(data) {
 }
 
 
-function makeNetwork(graph) {
+// function makeNetwork(graph) {
 
-	graph.links.forEach(function(e) {
-		e.source = +e.source; // string to number
-		e.target = +e.target;
-	});
+// 	graph.links.forEach(function(e) {
+// 		e.source = +e.source; // string to number
+// 		e.target = +e.target;
+// 	});
 
-	graph.nodes.forEach(function(e) {
-		e.attributes.Degree = +e.attributes.Degree;
-	});
+// 	graph.nodes.forEach(function(e) {
+// 		e.attributes.Degree = +e.attributes.Degree;
+// 	});
 
-	force
-		.nodes(graph.nodes)
-		.links(graph.links)
-		.start();
+// 	force
+// 		.nodes(graph.nodes)
+// 		.links(graph.links)
+// 		.start();
 
-	link = svg.selectAll(".link")
-		.data(graph.links)
-		.enter().append("line")
-		.attr("class", "link");
-		// .style("stroke-width", function(d) { return Math.sqrt(d.value); });
+// 	link = svg.selectAll(".link")
+// 		.data(graph.links)
+// 		.enter().append("line")
+// 		.attr("class", "link");
+// 		// .style("stroke-width", function(d) { return Math.sqrt(d.value); });
 
-	node = svg.selectAll(".node")
-		.data(graph.nodes)
-		.enter().append("circle")
-		.attr("class", "node")
-		.attr("r", function(d) {
-			return rScale(d.attributes.Degree); //2.6
-		})
-		.style('fill',  function(d) {
-			return getColor(d.attributes);
-		})
-		.call(force.drag)
-		.on("mouseover", function(d,i) {
+// 	node = svg.selectAll(".node")
+// 		.data(graph.nodes)
+// 		.enter().append("circle")
+// 		.attr("class", "node")
+// 		.attr("r", function(d) {
+// 			return rScale(d.attributes.Degree); //2.6
+// 		})
+// 		.style('fill',  function(d) {
+// 			return getColor(d.attributes);
+// 		})
+// 		.call(force.drag)
+// 		.on("mouseover", function(d,i) {
 
-			getName(d.attributes.hospital);
+// 			getName(d.attributes.hospital);
 
-			tooltip.text(d.id +', ' +d.attributes.age + '세, ' +  hospitalName);
-			tooltip.style("visibility", "visible");
-		})
-		.on("mousemove", function() {
-			tooltip.style("top", (event.pageY - 10) + "px")
-			.style("left", (event.pageX + 12) + "px");
-		})
-		.on("mouseout", function() {
-			tooltip.style("visibility", "hidden");
-		});
+// 			tooltip.text(d.id +', ' +d.attributes.age + '세, ' +  hospitalName);
+// 			tooltip.style("visibility", "visible");
+// 		})
+// 		.on("mousemove", function() {
+// 			tooltip.style("top", (event.pageY - 10) + "px")
+// 			.style("left", (event.pageX + 12) + "px");
+// 		})
+// 		.on("mouseout", function() {
+// 			tooltip.style("visibility", "hidden");
+// 		});
 
-	// // node.append("title")
-	// // 	.text(function(d) {
-	// // 		return d.id; 
-	// // 		// return d.name; 
-	// // 	});
+// 	// // node.append("title")
+// 	// // 	.text(function(d) {
+// 	// // 		return d.id; 
+// 	// // 		// return d.name; 
+// 	// // 	});
 
-	force.on("tick", function() {
-		link.attr("x1", function(d) { return d.source.x; })
-			.attr("y1", function(d) { return d.source.y; })
-			.attr("x2", function(d) { return d.target.x; })
-			.attr("y2", function(d) { return d.target.y; });
+// 	force.on("tick", function() {
+// 		link.attr("x1", function(d) { return d.source.x; })
+// 			.attr("y1", function(d) { return d.source.y; })
+// 			.attr("x2", function(d) { return d.target.x; })
+// 			.attr("y2", function(d) { return d.target.y; });
 
-		node.attr("cx", function(d) { return d.x; })
-			.attr("cy", function(d) { return d.y; });
-	});
-}
+// 		node.attr("cx", function(d) { return d.x; })
+// 			.attr("cy", function(d) { return d.y; });
+// 	});
+// }
 
 
 

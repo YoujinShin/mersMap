@@ -68,7 +68,7 @@ function initViz(data) {
         .call(xAxis);
 
 
-    // circle
+ //    // circle
 	circle = svg.selectAll("circle")
 			.data(data)
 		.enter().append("circle")
