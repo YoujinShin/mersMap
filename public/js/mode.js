@@ -73,11 +73,18 @@ $('#icon_network').click(function() {
 	$('#zoom_out').css('visibility', 'visible');
 
 	sigma.misc.animation.camera(c, {
-      // ratio: c.ratio / c.settings('zoomingRatio')
-      ratio: 0.47
+		// ratio: c.ratio / c.settings('zoomingRatio')
+		ratio: 0.32,
+		x: -60, 
+    	y: 10
     }, {
-      duration: 200
-    });  
+    	duration: 200
+    });
+
+    // c.goTo({
+    // 	x: 0, 
+    // 	y: height/2
+    // }); 
 
 	// loadGraph('lm.gexf');
 	// force.resume();
