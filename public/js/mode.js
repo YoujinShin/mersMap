@@ -78,7 +78,7 @@ $('#icon_network').click(function() {
 		x: -60, 
     	y: 10
     }, {
-    	duration: 200
+    	duration: 800
     });
 
     // c.goTo({
