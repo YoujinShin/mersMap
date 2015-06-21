@@ -227,13 +227,19 @@ h2 {
 
 #ref {
 	position: absolute;
-	left: 56%;
+	left: 54%;
 	/*width: 46%;*/
-	bottom: 10px;
+	padding: 24px;
+	padding-bottom: 8px;
+	padding-top: 8px;
+	bottom: 0px;
 	text-align: center;
 	z-index: 20;
 	font-family: 'Namsan', sans-serif;
-	font-size:11px;
+	font-size: 11px;
 	color: rgba(255,255,255,0.7);
+	background-color: rgba(255,255,255,0.05);
+	/*background-color: rgba(38, 40, 60, 0.4);*/
 	letter-spacing: 1px;
+	line-height: 140%;
 }
