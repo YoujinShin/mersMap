@@ -141,7 +141,7 @@ $(document).ready(function(){
     sigma.misc.animation.camera(c, {
       ratio: c.ratio / c.settings('zoomingRatio')
     }, {
-      duration: 200
+      duration: 300
     });  
   });
 
@@ -155,7 +155,7 @@ $(document).ready(function(){
     sigma.misc.animation.camera(c, {
       ratio: c.ratio * c.settings('zoomingRatio')
     }, {
-      duration: 200
+      duration: 300
     });
   });
 
