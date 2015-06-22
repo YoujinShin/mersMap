@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta charset="utf-8">
-	<title>메르스 지도</title>
+	<title>메르스 현황</title>
 	 <link rel="shortcut icon" href="logo2.png" />
 
 	<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
@@ -22,6 +22,25 @@
 	<link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
 	<link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
 
+	<div id="about">ABOUT</div>
+<!-- 
+			한국만의 특수한 병원문화, 간병 문화는 메르스 바이러스의 사람-사람간의 전파를 더욱 촉진시켰고, 특별히 물리적 접촉 없이도 전파가 가능한 메르스 바이러스의 특성상, 의외의 장소에서 예상치 못한 감염자가 발생하는 경우도 많았던 것도 사실이다. -->
+
+	<div id="close_button" style="cursor:pointer">x</div>
+	<div id="about_contents">
+		
+		<span style="font-size:14px; color:white">
+		메르스 현황 | Mers Spreads in South Korea
+		</span><br><br>
+		이 사이트는 현재 한국에서 빠르게 퍼지고 있는 메르스 바이러스의 전파 현황을 분석 및 시각화하기 위해 제작되었습니다. 메르스 바이러스의 사람-사람을 넘어선 보이지 않는 전파경로를 데이터를 기반으로 시각화하여 메르스 현황에 대한 최대한의 이해를 돕는 것이 이 사이트의 주요 목적입니다. 
+		<br><br>
+		병원 위치 지도과 데이터 시각화를 통해 날짜 별 확진자 추이 및 확진자의 나이분포, 그리고 감염경로를 병원 별로 확인 가능합니다. 
+		<br><br>
+		문의사항이나 피드백은 <a href="mailto:merskorea@googlegroups.com">유진 혹은 지원</a>에게 알려주세요.
+		<br><br>
+		| 데이터 출처 : 뉴스타파-표로 보는 메르스 <a href="http://newstapa.org/mers_table" style="color: rgba(255,255,255,1); text-decoration: none;" target="_blank">http://newstapa.org/mers_table </a>
+		<br>| 기간 : - 6.21.2015 (지속적인 업데이트 예정)
+	</div>
 
 	<h1>메르스 현황
 		<br><span style="font-size: 10px; color: rgba(255,255,255,0.8)">
@@ -40,7 +59,7 @@
 
 
 	<div id="title">
-		6월 17일자 확진자 데이터
+		6월 21일자 확진자 데이터
 		<br><br>
 		<!-- <span style="font-size: 12px; color: rgba(255,255,255,0.6); letter-spacing: 1px;">
 			| 총 확진자: 10명 <br>
@@ -65,17 +84,19 @@
 	<div id="zoom_out"> <br> - </div>
 
 
-	<div id="ref">| 출처 (ref): 뉴스타파, 
+	<div id="ref">
+		클릭해서 감염 경로를 확인하세요!
+<!-- 		| 출처 (ref): 뉴스타파, 
 		<a href="http://newstapa.org/mers_table" style="color: rgba(255,255,255,0.7); text-decoration: none;" target="_blank">
 			http://newstapa.org/mers_table
-		</a> (업데이트 예정)
+		</a> (업데이트 예정) -->
 	</div>
 
 
 	<!-- mode buttons -->
 	<div id="icon_set"></div>
 	
-	<div id='icon_time'><br>시간별<br> 
+	<div id='icon_time'><br>날짜별<br> 
 		<span style="letter-spacing: 1px; font-size: 8px; color: rgba(255,255,255,0.8)">Time<span>
 	</div>
 	<div id='icon_age'><br>나이별<br> 

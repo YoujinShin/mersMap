@@ -12,6 +12,17 @@ $('#zoom_in').mouseout(function() { $(this).css('opacity','1'); });
 $('#zoom_out').mouseover(function() { $(this).css('opacity','0.6'); });
 $('#zoom_out').mouseout(function() { $(this).css('opacity','1'); });
 
+$('#about').mouseover(function() { $(this).css('background-color','rgba(255,255,255,0.1)'); });
+$('#about').mouseout(function() { $(this).css('background-color','rgba(255,255,255,0)'); });
+$('#about').click(function() {
+	$('#about_contents').css('visibility', 'visible');
+	$('#close_button').css('visibility', 'visible');
+});
+$('#close_button').click(function() {
+	$('#about_contents').css('visibility', 'hidden');
+	$('#close_button').css('visibility', 'hidden');
+});
+
 
 $('#icon_time').click(function() {
 	$('#icon_time').css('background-color','#ed526f');
@@ -74,9 +85,9 @@ $('#icon_network').click(function() {
 
 	sigma.misc.animation.camera(c, {
 		// ratio: c.ratio / c.settings('zoomingRatio')
-		ratio: 0.28,
+		ratio: 0.43, //0.28
 		x: -60, 
-    	y: 20
+    	y: -50
     }, {
     	duration: 800
     });

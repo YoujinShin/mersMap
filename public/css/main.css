@@ -18,6 +18,60 @@ body {
 	margin: 0px;
 }
 
+#about {
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	z-index: 20;
+	padding: 6px;
+	font-family: arial, sans-serif;
+	font-size: 9px;
+	letter-spacing: 1px;
+	/*font-weight: bold;*/
+	color: #ed526f;
+	border: 1px solid #ed526f;
+	border-radius: 5px;
+	cursor:pointer;
+}
+
+#about_contents {
+	position: absolute;
+	left: 10%;
+	top: 140px;
+	width: 34%;
+	padding: 32px;
+	z-index: 20;
+
+	font-family: 'Namsan', sans-serif;
+	font-size: 12px;
+	letter-spacing: 1px;
+	color: rgba(255,255,255,1);
+	border-radius: 5px;
+	background-color: rgba(0,0,0,0.7);
+	line-height: 160%;
+	visibility: hidden;
+}
+
+#close_button {
+	position: absolute;
+	left: 45.8%;
+	top: 150px;
+	width: 16px;
+	padding: 2px;
+	z-index: 30;
+	color: white;
+	font-size: 16px;
+	border-radius: 12px;
+	text-align: center;
+	visibility: hidden;
+	/*background-color: rgba(255,255,255,0.1);*/
+}
+
+a {
+	color: white;
+	text-decoration: none;
+}
+
 h1 {
 	position: absolute;
 	left: 20px;
@@ -229,7 +283,7 @@ h2 {
 	position: absolute;
 	left: 54%;
 	/*width: 46%;*/
-	padding: 24px;
+	padding: 30px;
 	padding-bottom: 8px;
 	padding-top: 8px;
 	bottom: 0px;
@@ -237,7 +291,7 @@ h2 {
 	z-index: 20;
 	font-family: 'Namsan', sans-serif;
 	font-size: 11px;
-	color: rgba(255,255,255,0.7);
+	color: rgba(255,255,255,0.9);
 	background-color: rgba(255,255,255,0.05);
 	/*background-color: rgba(38, 40, 60, 0.4);*/
 	letter-spacing: 1px;

@@ -52,7 +52,7 @@ var rScale = d3.scale.linear() //age
 	.range([2.6, 10]);
 
 queue()
-	.defer(d3.csv, "/data/061617.csv")
+	.defer(d3.csv, "/data/061621.csv")
 	// .defer(d3.json, "/data/graph.json")
 	.defer(d3.json, "/data/graph2.json")
 	// .defer(d3.json, "/data/graph_test.json")

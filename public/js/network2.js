@@ -42,7 +42,7 @@ s = new sigma({
 
 // load gexf file
 sigma.parsers.gexf(
-  'lm4.gexf',
+  'network0621_3.gexf',
   s,
   function() {
 

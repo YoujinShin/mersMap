@@ -14,18 +14,18 @@ var tooltip = d3.select("body")
 var parseDate2 = d3.time.format("%e-%b").parse;
 
 var xScale = d3.time.scale()
-	.domain([ parseDate2('20-May'), parseDate2('18-Jun') ])
+	.domain([ parseDate2('20-May'), parseDate2('21-Jun') ])
 	// .domain([ parseDate2('19-May'), parseDate2('17-Jun') ])
 	// .range([70, width - 70]);
 	.range([70, width - 70]);
 
 var yScale = d3.scale.linear()
-	.domain([0, 38])
-	.range([height - 140, 10]);
+	.domain([0, 39])
+	.range([height - 134, 100]);
 
 var yScale2 = d3.scale.linear() //age
 	.domain([0, 110])
-	.range([height - 140, 100]);
+	.range([height - 134, 100]);
 
 var xAxis = d3.svg.axis()
 	.scale(xScale)
