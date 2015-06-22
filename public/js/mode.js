@@ -41,7 +41,8 @@ $('#icon_time').click(function() {
 	$('#viz').css('visibility', 'visible');
 	$('#viz2').css('visibility', 'hidden');
 	$('#zoom_in').css('visibility', 'hidden');
-	$('#zoom_out').css('visibility', 'hidden')
+	$('#zoom_out').css('visibility', 'hidden');
+	$('#ref').css('visibility', 'hidden');
 });
 
 $('#icon_age').click(function() {
@@ -62,6 +63,7 @@ $('#icon_age').click(function() {
 	$('#viz2').css('visibility', 'hidden');
 	$('#zoom_in').css('visibility', 'hidden');
 	$('#zoom_out').css('visibility', 'hidden');
+	$('#ref').css('visibility', 'hidden');
 });
 
 $('#icon_network').click(function() {
@@ -82,6 +84,7 @@ $('#icon_network').click(function() {
 	$('#viz').css('visibility', 'hidden');
 	$('#zoom_in').css('visibility', 'visible');
 	$('#zoom_out').css('visibility', 'visible');
+	$('#ref').css('visibility', 'visible');
 
 	sigma.misc.animation.camera(c, {
 		// ratio: c.ratio / c.settings('zoomingRatio')

@@ -296,4 +296,5 @@ h2 {
 	/*background-color: rgba(38, 40, 60, 0.4);*/
 	letter-spacing: 1px;
 	line-height: 140%;
+	visibility: hidden;
 }
