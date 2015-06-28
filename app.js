@@ -73,6 +73,7 @@ COOKIEHASH in your .env file (also share with heroku)
 var routes = require('./routes/index.js');
 
 app.get('/', routes.index);
+app.get('/scroll', routes.scroll);
 
 // //new astronaut routes
 // app.get('/create',routes.astroForm); //display form

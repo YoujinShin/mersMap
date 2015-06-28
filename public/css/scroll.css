@@ -1,0 +1,43 @@
+@font-face {
+	font-family: Neue;
+	src: url(NeueHaasUnicaPro-Regular.ttf);
+}
+
+@font-face {
+	font-family: NeueThin;
+	src: url(NeueHaasUnicaPro-Thin.ttf);
+}
+
+@font-face {
+	font-family: Namsan;
+	src: url(namsan.ttf);
+}
+
+body {
+	font-family: 'Neue', sans-serif;
+	background-color: black;
+	color: white;
+}
+
+#bg {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 100%;
+	background-image: url("/pic/mers0.jpg");
+	opacity: 0.8;
+}
+
+#title {
+	position: absolute;
+	left: 40%;
+	/*right: auto;*/
+
+	font-size: 34px;
+	text-align: center;
+	background-color: rgba(0,0,0,0.7);
+	padding: 6px;
+}

@@ -13,3 +13,8 @@ exports.index = function(req, res) {
 	console.log('main page requested');
 	res.render('index.html');
 }
+
+exports.scroll = function(req, res) {
+	console.log('scroll page requested');
+	res.render('scroll.html');
+}
