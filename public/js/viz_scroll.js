@@ -28,7 +28,7 @@ function initViz(data) {
 		.attr('x2', function() { return widthR - 50; })
 		.attr('y1', function(d) { return yScaleR(0); })
 		.attr('y2', function(d) { return yScaleR(0); })
-		.attr('stroke', 'rgba(255,255,255,0.1)');
+		.attr('stroke', 'rgba(255,255,255,0)');
 
 	// text - age
 	text_age = svgR.selectAll("text")
