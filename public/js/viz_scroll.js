@@ -1,10 +1,10 @@
 var yScale = d3.scale.linear()
 	.domain([0, 39])
-	.range([heightR - 134, 100]);
+	.range([heightR - 90, 100]);
 
 var yScaleR = d3.scale.linear() //age
 	.domain([0, 110])
-	.range([heightR - 134, 100]);
+	.range([heightR - 90, 100]);
 
 var xScale = d3.time.scale()
 	.domain([ parseDate('20-May'), parseDate('21-Jun') ])
@@ -16,6 +16,8 @@ var xAxis = d3.svg.axis()
 	.ticks(7);
 
 function initViz(data) {
+
+	drawDone = true;
 
 	// line - age
 	line_age = svgR.selectAll("line")
@@ -57,6 +59,7 @@ function initViz(data) {
 		.attr('cy', function(d, i) { return yScale(d.y); })
 		.attr("r", function(d) { return 2.6; })
 		.style("fill", function(d) { return getColor(d); })
+		.style("opacity", 0)
 		.attr('stroke', 'rgba(0,0,0,0)')
 		.attr('stroke-width', 1.2)
 		.on("mouseover", function(d,i) {
