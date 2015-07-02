@@ -108,6 +108,7 @@ function getName(name) {
 }
 
 
+
 function getColor(d) {
 	if(d.condition == 'death') { return  '#ed526f' }// pink: ed526f// purple: 444664
 	else { return 'rgba(255,255,255,0.86)' }

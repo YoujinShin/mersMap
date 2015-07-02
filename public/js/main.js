@@ -124,6 +124,7 @@ var currentDate = '20-May';
 var cnt = 0;
 var cnt_death = 0;
 
+
 // get number in each hospital
 function getNumber(data) {
 

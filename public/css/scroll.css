@@ -36,6 +36,17 @@ body {
 	margin: 0px;
 }
 
+#viz_right {
+	position: fixed;
+	right: 0px;
+	top: 0px;
+	width: 25%;
+	/*height: 100%;*/
+	background-color: rgba(255,255,255,0.1);
+	padding: 0px;
+	margin: 0px;
+}
+
 #title {
 	position: fixed;
 	left: 50%;
@@ -85,5 +96,20 @@ body {
 	visibility: hidden;
 }
 
+
+.axis path {
+	fill: none;
+	stroke: none;
+}
+.axis line {
+	fill: none;
+	stroke: rgba(255,255,255,0.3);
+}
+.axis {
+	font-size: 11px;
+	font-family: 'Namsan', sans-serif;
+	fill: rgba(255,255,255,0.9);
+	stroke: none;
+}
 
 
