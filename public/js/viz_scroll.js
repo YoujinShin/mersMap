@@ -62,21 +62,21 @@ function initViz(data) {
 		.style("fill", function(d) { return getColor(d); })
 		.style("opacity", 0)
 		.attr('stroke', 'rgba(0,0,0,0)')
-		.attr('stroke-width', 1.2)
-		.on("mouseover", function(d,i) {
+		.attr('stroke-width', 1.2);
+		// .on("mouseover", function(d,i) {
 
-			getName(d.hospital);
+		// 	getName(d.hospital);
 
-			tooltip.text(d.age + '세, ' +  hospitalName);
-			tooltip.style("visibility", "visible");
-		})
-		.on("mousemove", function() {
-			tooltip.style("top", (event.pageY - 10) + "px")
-			.style("left", (event.pageX + 12) + "px");
-		})
-		.on("mouseout", function() {
-			tooltip.style("visibility", "hidden");
-		});
+		// 	tooltip.text(d.age + '세, ' +  hospitalName);
+		// 	tooltip.style("visibility", "visible");
+		// })
+		// .on("mousemove", function() {
+		// 	tooltip.style("top", (event.pageY - 10) + "px")
+		// 	.style("left", (event.pageX + 12) + "px");
+		// })
+		// .on("mouseout", function() {
+		// 	tooltip.style("visibility", "hidden");
+		// });
 }
 
 function getColor(d) {

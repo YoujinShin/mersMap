@@ -24,8 +24,8 @@ var zoom = d3.behavior.zoom()
     .on("zoom", zoom);
 
 var states = svgR.append("g")
-    .attr("id", "states")
-    .call(zoom);
+    .attr("id", "states");
+    // .call(zoom);
 
 function drawKorea(json, data) {
 
@@ -33,8 +33,8 @@ function drawKorea(json, data) {
       .data(json.features)
     .enter().append("path")
       .attr("d", path)
-      .attr("id", function(d) { return 'path-'+d.id; })
-      .on("click", click);
+      .attr("id", function(d) { return 'path-'+d.id; });
+      // .on("click", click);
   
   circle2 = states.selectAll("circle")
       .data(data)
