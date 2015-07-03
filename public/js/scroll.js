@@ -20,7 +20,8 @@ svgR = d3.select('#viz_right').append('svg')
 tooltip = d3.select("body")
 	.append("div").attr("id", "tooltip");
 
-parseDate = d3.time.format("%e-%b").parse;
+// parseDate = d3.time.format("%e-%b").parse;
+parseDate = d3.time.format("%m/%e/%y").parse;
 
 ages = [ 0, 20, 40, 60, 80 ];
 
@@ -46,8 +47,8 @@ var topMax = $('body').height() - window.innerHeight;
 
 // date to left bar
 var yScaleL = d3.time.scale() 
-	.domain([ parseDate('18-May'), parseDate('23-Jun') ])// .domain([ parseDate('20-May'), parseDate('21-Jun') ])
-	// .range([0, topMax]);
+    .domain([ parseDate('5/20/15'), parseDate('6/21/15') ])// .domain([ parseDate('20-May'), parseDate('21-Jun') ])
+	// .domain([ parseDate('18-May'), parseDate('23-Jun') ])// .domain([ parseDate('20-May'), parseDate('21-Jun') ])
     .range([0, window.innerHeight]);
 
 // scrollTop to left bar
@@ -60,6 +61,13 @@ var progressBar = svgL.append('rect')
 	.attr('width', 6).attr('height', 0)
 	.attr('fill', 'rgba(255,255,255,1)')
 	.attr('stroke-width', 0);
+
+// scrollTop to date
+var dateScaleL = d3.time.scale()
+    .domain([0, topMax])
+    .range([ parseDate('5/20/15'), parseDate('6/21/15') ]);
+    // .range([ '18-May', '23-Jun' ]);
+
 
 // LOAD DATA
 queue()
@@ -102,29 +110,44 @@ function ready(error, data) {
 	// 	});
 }
 
+// onscroll functions
 onscroll = function() {
   scrollTop = document.documentElement.scrollTop || document.body.scrollTop; 
 
   progressBar.transition().duration(0)
     .attr('height', function() { return yScaleL2(scrollTop); } );
 
-  var topMax = $('body').height() - window.innerHeight;
-
   changeHome(scrollTop);
   if(drawDone) { changeCircle(scrollTop); }
+
+  var currentNum  = dateScaleL(scrollTop);
+  var format = d3.time.format("%m.%d.%Y");
+  var currentDate = format(new Date(currentNum));
+
+  $('#currentDate').text(currentDate);
 };
 
-var opacScale = d3.time.scale()
+var opacScale = d3.scale.linear()
     .domain([0, 300]).range([1, 0]);
 
-var opacScale2 = d3.time.scale()
+var opacScale2 = d3.scale.linear()
     .domain([0, 100]).range([0, 1]);
 
+
+// change home screen
 function changeHome(d) {
+
     d3.select('#title').style('opacity', function() { return opacScale(d); });
     d3.select('#arrow').style('opacity', function() { return opacScale(d); });
 
     d3.select('#viz_right').style('opacity', function() { return opacScale2(d); });
+
+    d3.select('#bttnTime').style('opacity', function() { return opacScale2(d); });
+    d3.select('#bttnAge').style('opacity', function() { return opacScale2(d); });
+    d3.select('#bttnNet').style('opacity', function() { return opacScale2(d); });
+
+    d3.select('#patients').style('opacity', function() { return opacScale2(d); });
+    d3.select('#deaths').style('opacity', function() { return opacScale2(d); });
 
     if(d > 300) {
         d3.select('#title').style('visibility', 'hidden');
@@ -135,22 +158,27 @@ function changeHome(d) {
     }
 }
 
+// update circle
 function changeCircle(d) {
 
-    // console.log('...');
-
     var currentPosition = yScaleL2(d);
-    // console.log(currentPosition);
+    var patients = 0;
+    var deaths = 0;
 
     circle.each(function(e) {
         var circlePosition = yScaleL(e.date);
-        // console.log(circlePosition);
+        
         if(circlePosition > currentPosition) {
             d3.select(this).style('opacity', 0);
         } else {
             d3.select(this).style('opacity', 1);
+            if(e.condition == 'death') { deaths = deaths + 1; }
+            patients = patients + 1;
         }
     });
+
+    $('#num_patients').text(patients);
+    $('#num_deaths').text(deaths);
 }
 
 

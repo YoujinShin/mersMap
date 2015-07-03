@@ -13,22 +13,36 @@
 
 <body>
 
-	<!-- <div id="bg"></div> -->
 	<div id="title">MERS SPREAD
 		<br>
 		<!-- IN SOUTH KOREA -->
 		<span style="font-weight:300;font-size:20px;color: rgba(255,255,255,0.3)">SOUTH KOREA</span>
 	</div>
 
+
+	<!-- visualization -->
 	<div id="viz_left"></div>
 	<div id="viz_right">
 		<div id="viz_title">
-			Mers Patients in S. Korea
+			<span style="letter-spacing: 1px">Mers Patients in S. Korea</span>
 			<br>
-			<span style="font-size: 14px;color: rgba(255,255,255,0.4)"> 5.20.2015 - <span id='currentDate'>6.20.2015</span> </span>
+			<span style="font-size: 12px;color: rgba(255,255,255,0.4)"> 
+				5.20.2015 - 
+				<span id='currentDate' style="font-size: 12px;color: rgba(255,255,255,1)">
+					5.20.2015</span> 
+			</span>
 			<!-- <hr> -->
 		</div>
 	</div>
+
+	<div id="patients"><span id="num_patients">0</span> Patients</div>
+	<div id="deaths"><span id="num_deaths">0</span> Deaths</div>
+
+
+	<!-- button -->
+	<div id="bttnTime" class="button">TIME</div>
+	<div id="bttnAge" class="button">AGE</div>
+	<div id="bttnNet" class="button">NETWORK</div>
 
 	<img id="arrow" src="arrow2.png" />
 	<!-- <img id="menu" src="menu.png" /> -->
@@ -45,7 +59,8 @@
 	<!-- javascript -->
 	<script src="/js/scroll.js"></script>
 	<script src="/js/viz_scroll.js"></script>
-	
+	<script src="/js/mode2.js"></script>
+
 </body>
 </html>
 

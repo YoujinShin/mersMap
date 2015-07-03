@@ -1,19 +1,21 @@
 var yScale = d3.scale.linear()
 	.domain([0, 40])
-	.range([heightR - 90, 100]);
+	.range([heightR - 80, 100]);
 
 var yScaleR = d3.scale.linear() //age
 	.domain([0, 110])
-	.range([heightR - 90, 100]);
+	.range([heightR - 80, 100]);
 
 var xScale = d3.time.scale()
-	.domain([ parseDate('20-May'), parseDate('21-Jun') ])
+	.domain([ parseDate('5/20/15'), parseDate('6/21/15') ])
+	// .domain([ parseDate('20-May'), parseDate('21-Jun') ])
 	.range([50, widthR - 50]);
 
 var xAxis = d3.svg.axis()
 	.scale(xScale)
 	.orient('bottom')
 	.ticks(7);
+
 
 function initViz(data) {
 
@@ -35,10 +37,10 @@ function initViz(data) {
 			.data(ages)
 		.enter().append("text")
 		.attr('class', 'text_age')
-		.attr('class', 'text_age')
 		.text(function(d) { return d; })
-		.attr('x', function() { return widthR - 70 + 10; })
-		.attr('y', function(d) { return yScaleR(d) + 5; })
+		// .attr('x', function() { return widthR - 70 + 10; })
+		.attr('x', function() { return 20; })
+		.attr('y', function(d) { return yScaleR(d) + 3; })
 		.style('opacity', 0);
 
 
@@ -86,7 +88,7 @@ function getColor(d) {
 function byAge() {
 	circle.transition().duration(2000)
 		.attr('cx', function(d) { return xScale(d.date); })
-		.attr('cy', function(d, i) { return yScale2(d.age); });
+		.attr('cy', function(d, i) { return yScaleR(d.age); });
 
 	line_age.transition().duration(2000)
 		.attr('y1', function(d) { return yScaleR(d); })
@@ -106,7 +108,7 @@ function byTime() {
 	line_age.transition().duration(2000)
 		.attr('y1', function(d) { return yScaleR(0); })
 		.attr('y2', function(d) { return yScaleR(0); })
-		.attr('stroke', 'rgba(255,255,255,0.1)');
+		.attr('stroke', 'rgba(255,255,255,0)');
 
 	text_age.transition().duration(1000)
 		.style('opacity', 0);
@@ -117,7 +119,7 @@ function getName(name) {
     hospital.forEach(function(e) {
         if(e.icon == name) { 
             hospitalName = e.name;
-            return e.name; 
+            return e.name;
         }
     });
 }

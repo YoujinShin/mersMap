@@ -41,7 +41,6 @@ body {
 	right: 0px;
 	top: 0px;
 	width: 25%;
-	/*height: 100%;*/
 	background-color: rgba(255,255,255,0.0);
 	padding: 0px;
 	margin: 0px;
@@ -51,13 +50,35 @@ body {
 #viz_title {
 	position: fixed;
 	left: 40px;
-	/*width: 10%;*/
 	font-weight: 300;
 	font-family: 'HelveticaN', sans-serif;
-	font-size: 16px;
-	top: 50px;
+	font-size: 14px;
+	top: 42px;
 	letter-spacing: 1px;
-	line-height: 140%;
+	line-height: 160%;
+}
+
+#deaths {
+	position: fixed;
+	top: 120px;
+	right: 2%;
+	font-family: 'HelveticaN', sans-serif;
+	font-size: 12px;
+	font-weight: 300;
+	letter-spacing: 1px;
+	color: #ed526f;
+	opacity: 0;
+}
+
+#patients {
+	position: fixed;
+	top: 100px;
+	right: 2%;
+	font-family: 'HelveticaN', sans-serif;
+	font-size: 12px;
+	font-weight: 300;
+	letter-spacing: 1px;
+	opacity: 0;
 }
 
 #title {
@@ -109,7 +130,7 @@ body {
 	visibility: hidden;
 }
 
-
+/*  axis  */
 .axis path {
 	fill: none;
 	stroke: none;
@@ -124,5 +145,53 @@ body {
 	fill: rgba(255,255,255,0.9);
 	stroke: none;
 }
+
+/*  button  */
+.button {
+	font-family: 'HelveticaN', sans-serif;
+	font-size: 9px;
+	position: fixed;
+	top: 50px;
+	width: 5.8%;
+	padding: 5px;
+
+	text-align: center;
+	background-color: rgba(255,255,255,0.16);
+	border: 1px solid rgba(255,255,255,0);
+	/*opacity: 0;*/
+}
+
+#bttnTime {
+	right: 16%;
+	border-color: rgba(255,255,255,0.5);
+	/*border: 1px solid rgba(255,255,255,0.5);*/
+	opacity: 0;
+}
+
+#bttnAge {
+	right: 9%;
+	opacity: 0;
+}
+
+#bttnNet {
+	right: 2%;
+	opacity: 0;
+}
+
+.text_age {
+	font-family: 'HelveticaN', sans-serif;
+	font-size: 11px;
+	fill: rgba(255,255,255,0.9);
+	stroke: none;
+}
+
+
+
+
+
+
+
+
+
 
 
