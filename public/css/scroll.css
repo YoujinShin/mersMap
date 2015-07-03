@@ -173,7 +173,7 @@ body {
 	opacity: 0;
 }
 
-#bttnNet {
+#bttnMap {
 	right: 2%;
 	opacity: 0;
 }
@@ -185,6 +185,13 @@ body {
 	stroke: none;
 }
 
+#graph {
+
+}
+
+#states {
+	visibility: hidden;
+}
 
 
 

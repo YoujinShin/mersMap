@@ -1,4 +1,5 @@
 window.drawDone = false;
+window.mapClicked = false;
 
 // VIZ LEFT
 widthL = $('#viz_left').width();
@@ -15,6 +16,9 @@ heightR = $('#viz_right').height();
 
 svgR = d3.select('#viz_right').append('svg')
     .attr('width', widthR).attr('height', heightR);
+
+graph = svgR.append("g")
+    .attr("id", "graph");
 
 // 
 tooltip = d3.select("body")
@@ -72,17 +76,21 @@ var dateScaleL = d3.time.scale()
 // LOAD DATA
 queue()
 	.defer(d3.csv, "/data/061621.csv")
+    .defer(d3.json, "/data/korea.json")
 	.await(ready);
 
-function ready(error, data) {
+function ready(error, data, json) {
 
     getNumber(data);
 
 	data.forEach(function(d) { 
         d.date = parseDate(d.date);
+        d.lat = +d.lat;
+        d.lon = +d.lon;
     });
 
     initViz(data);
+    drawKorea(json, data);
 
 	// points = svgL.selectAll("rect")
 	// 		.data(data)
@@ -144,10 +152,13 @@ function changeHome(d) {
 
     d3.select('#bttnTime').style('opacity', function() { return opacScale2(d); });
     d3.select('#bttnAge').style('opacity', function() { return opacScale2(d); });
-    d3.select('#bttnNet').style('opacity', function() { return opacScale2(d); });
+    d3.select('#bttnMap').style('opacity', function() { return opacScale2(d); });
 
     d3.select('#patients').style('opacity', function() { return opacScale2(d); });
     d3.select('#deaths').style('opacity', function() { return opacScale2(d); });
+
+    d3.select('#tooltip').style('opacity', function() { return opacScale2(d); });
+    // d3.select('#states').style('opacity', function() { return opacScale2(d); });
 
     if(d > 300) {
         d3.select('#title').style('visibility', 'hidden');
@@ -165,24 +176,41 @@ function changeCircle(d) {
     var patients = 0;
     var deaths = 0;
 
-    circle.each(function(e) {
-        var circlePosition = yScaleL(e.date);
-        
-        if(circlePosition > currentPosition) {
-            d3.select(this).style('opacity', 0);
-        } else {
-            d3.select(this).style('opacity', 1);
-            if(e.condition == 'death') { deaths = deaths + 1; }
-            patients = patients + 1;
-        }
-    });
+    if(mapClicked) {
+
+        circle2.each(function(e) {
+            var circlePosition = yScaleL(e.date);
+            
+            if(circlePosition > currentPosition) {
+                d3.select(this).style('opacity', 0);
+            } else {
+                d3.select(this).style('opacity', 1);
+                if(e.condition == 'death') { deaths = deaths + 1; }
+                patients = patients + 1;
+            }
+        });
+    } else {
+
+        circle.each(function(e) {
+            var circlePosition = yScaleL(e.date);
+            
+            if(circlePosition > currentPosition) {
+                d3.select(this).style('opacity', 0);
+            } else {
+                d3.select(this).style('opacity', 1);
+                if(e.condition == 'death') { deaths = deaths + 1; }
+                patients = patients + 1;
+            }
+        });
+    }
 
     $('#num_patients').text(patients);
     $('#num_deaths').text(deaths);
 }
 
-
-var currentDate = '20-May';
+//
+// var currentDate = '20-May';
+var currentDate = '5/20/15';
 var cnt = 0;
 var cnt_death = 0;
 
@@ -213,7 +241,5 @@ function getNumber(data) {
         }
     }
 }
-
-
 
 

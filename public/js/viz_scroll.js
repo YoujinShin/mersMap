@@ -16,13 +16,12 @@ var xAxis = d3.svg.axis()
 	.orient('bottom')
 	.ticks(7);
 
-
 function initViz(data) {
 
 	drawDone = true;
 
 	// line - age
-	line_age = svgR.selectAll("line")
+	line_age = graph.selectAll("line")
 			.data(ages)
 		.enter().append("line")
 		.attr('class', 'line_age')
@@ -33,7 +32,7 @@ function initViz(data) {
 		.attr('stroke', 'rgba(255,255,255,0)');
 
 	// text - age
-	text_age = svgR.selectAll("text")
+	text_age = graph.selectAll("text")
 			.data(ages)
 		.enter().append("text")
 		.attr('class', 'text_age')
@@ -46,14 +45,14 @@ function initViz(data) {
 
 	// axis
 	var ty = yScale(0) + 10;
-	svgR.append("g")            // Add the X Axis
+	graph.append("g")            // Add the X Axis
         .attr("class", "x axis")
         .attr("transform", "translate(0," + ty + ")")
         .call(xAxis);
 
 
  //    // circle
-	circle = svgR.selectAll("circle")
+	circle = graph.selectAll("circle")
 			.data(data)
 		.enter().append("circle")
 		.attr('class', 'circles')
@@ -86,6 +85,10 @@ function getColor(d) {
 }
 
 function byAge() {
+	// circle.transition().duration(0).style('opacity', 1);
+	d3.select('#states').style('visibility', 'hidden');
+	d3.select('#graph').style('visibility', 'visible');
+
 	circle.transition().duration(2000)
 		.attr('cx', function(d) { return xScale(d.date); })
 		.attr('cy', function(d, i) { return yScaleR(d.age); });
@@ -97,10 +100,15 @@ function byAge() {
 
 	text_age.transition().duration(4000)
 		.style('opacity', 1);
+
+	mapClicked = false;
 }
 
-
 function byTime() {
+	// circle.transition().duration(0).style('opacity', 1);
+	d3.select('#states').style('visibility', 'hidden');
+	d3.select('#graph').style('visibility', 'visible');
+
 	circle.transition().duration(2000)
 		.attr('cx', function(d) { return xScale(d.date); })
 		.attr('cy', function(d, i) { return yScale(d.y); });
@@ -112,6 +120,16 @@ function byTime() {
 
 	text_age.transition().duration(1000)
 		.style('opacity', 0);
+
+	mapClicked = false;
+}
+
+function byMap() {
+
+	d3.select('#states').style('visibility', 'visible');
+	d3.select('#graph').style('visibility', 'hidden');
+
+	mapClicked = true;
 }
 
 function getName(name) {

@@ -1,0 +1,25 @@
+#states path {
+  /*fill: #ccece6;*/
+  fill: rgba(30,30,30,1);
+  stroke: rgba(200,200,200,0);
+  stroke-width: 1px;
+}
+
+#states path:hover {
+  stroke: rgba(255,255,255,0.4);
+}
+
+#states .active {
+  /*fill: orange;*/
+  fill: rgba(0,0,0,1);
+}
+
+#states path {
+	cursor: pointer;
+}
+
+#states text {
+	cursor: pointer;
+	font-size: 12px;
+	font-family: 'Nanum Gothic';
+}
