@@ -45,6 +45,19 @@ body {
 	background-color: rgba(255,255,255,0.0);
 	padding: 0px;
 	margin: 0px;
+	opacity: 0;
+}
+
+#viz_title {
+	position: fixed;
+	left: 40px;
+	/*width: 10%;*/
+	font-weight: 300;
+	font-family: 'HelveticaN', sans-serif;
+	font-size: 16px;
+	top: 50px;
+	letter-spacing: 1px;
+	line-height: 140%;
 }
 
 #title {

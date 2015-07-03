@@ -1,5 +1,5 @@
 var yScale = d3.scale.linear()
-	.domain([0, 39])
+	.domain([0, 40])
 	.range([heightR - 90, 100]);
 
 var yScaleR = d3.scale.linear() //age
@@ -57,7 +57,7 @@ function initViz(data) {
 		.attr('class', 'circles')
 		.attr('cx', function(d) {  return xScale(d.date); })
 		.attr('cy', function(d, i) { return yScale(d.y); })
-		.attr("r", function(d) { return 2.6; })
+		.attr("r", function(d) { return 2.2; })
 		.style("fill", function(d) { return getColor(d); })
 		.style("opacity", 0)
 		.attr('stroke', 'rgba(0,0,0,0)')

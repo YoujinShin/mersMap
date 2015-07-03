@@ -76,30 +76,30 @@ function ready(error, data) {
 
     initViz(data);
 
-	points = svgL.selectAll("rect")
-			.data(data)
-		.enter().append("rect")
-		.attr('x', function(d) { return 0; })
-		.attr('y', function(d, i) { return yScaleL(d.date) - 0.5; })
-		.attr("width", function(d) { return 18; })
-		.attr("height", 1)
-		.style("fill", 'rgba(255,255,255,1)' )
-		.attr('stroke', 'rgba(0,0,0,0)')
-		.attr('stroke-width', 0)
-		.on("mouseover", function(d,i) {
+	// points = svgL.selectAll("rect")
+	// 		.data(data)
+	// 	.enter().append("rect")
+	// 	.attr('x', function(d) { return 0; })
+	// 	.attr('y', function(d, i) { return yScaleL(d.date) - 0.5; })
+	// 	.attr("width", function(d) { return 18; })
+	// 	.attr("height", 1)
+	// 	.style("fill", 'rgba(255,255,255,1)' )
+	// 	.attr('stroke', 'rgba(0,0,0,0)')
+	// 	.attr('stroke-width', 0)
+	// 	.on("mouseover", function(d,i) {
 
-			getName(d.hospital);
+	// 		getName(d.hospital);
 
-			tooltip.text(d.age + '세, ' +  hospitalName);
-			tooltip.style("visibility", "visible");
-		})
-		.on("mousemove", function() {
-			tooltip.style("top", (event.pageY - 10) + "px")
-			.style("left", (event.pageX + 12) + "px");
-		})
-		.on("mouseout", function() {
-			tooltip.style("visibility", "hidden");
-		});
+	// 		tooltip.text(d.age + '세, ' +  hospitalName);
+	// 		tooltip.style("visibility", "visible");
+	// 	})
+	// 	.on("mousemove", function() {
+	// 		tooltip.style("top", (event.pageY - 10) + "px")
+	// 		.style("left", (event.pageX + 12) + "px");
+	// 	})
+	// 	.on("mouseout", function() {
+	// 		tooltip.style("visibility", "hidden");
+	// 	});
 }
 
 onscroll = function() {
@@ -117,9 +117,14 @@ onscroll = function() {
 var opacScale = d3.time.scale()
     .domain([0, 300]).range([1, 0]);
 
+var opacScale2 = d3.time.scale()
+    .domain([0, 100]).range([0, 1]);
+
 function changeHome(d) {
     d3.select('#title').style('opacity', function() { return opacScale(d); });
     d3.select('#arrow').style('opacity', function() { return opacScale(d); });
+
+    d3.select('#viz_right').style('opacity', function() { return opacScale2(d); });
 
     if(d > 300) {
         d3.select('#title').style('visibility', 'hidden');
