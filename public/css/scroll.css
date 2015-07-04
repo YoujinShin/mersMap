@@ -158,13 +158,12 @@ body {
 	text-align: center;
 	background-color: rgba(255,255,255,0.16);
 	border: 1px solid rgba(255,255,255,0);
-	/*opacity: 0;*/
+	cursor: pointer;
 }
 
 #bttnTime {
 	right: 16%;
 	border-color: rgba(255,255,255,0.5);
-	/*border: 1px solid rgba(255,255,255,0.5);*/
 	opacity: 0;
 }
 
@@ -185,6 +184,7 @@ body {
 	stroke: none;
 }
 
+/* g */
 #graph {
 
 }
@@ -193,8 +193,73 @@ body {
 	visibility: hidden;
 }
 
+#about {
+	position: fixed;
+	left: 40px;
+	font-weight: 300;
+	font-family: 'HelveticaN', sans-serif;
+	font-size: 10px;
+	bottom: 38px;
+	letter-spacing: 0px;
+	line-height: 160%;
+	cursor:pointer;
+	color: rgba(255,255,255,0.3);
+	opacity: 0;
+}
 
+#network {
+	position: fixed;
+	left: 140px;
+	font-weight: 300;
+	font-family: 'HelveticaN', sans-serif;
+	font-size: 10px;
+	bottom: 38px;
+	letter-spacing: 0px;
+	line-height: 160%;
+	cursor:pointer;
+	color: rgba(255,255,255,0.3);
+	opacity: 0;
+}
 
+#visualization {
+	position: fixed;
+	left: 246px;
+	font-weight: 300;
+	font-family: 'HelveticaN', sans-serif;
+	font-size: 10px;
+	bottom: 38px;
+	letter-spacing: 0px;
+	line-height: 160%;
+	cursor:pointer;
+	color: rgba(255,255,255,0.3);
+	opacity: 0;
+}
+
+#dash {
+	position: fixed;
+	font-weight: 300;
+	font-family: 'HelveticaN', sans-serif;
+	font-size: 10px;
+	bottom: 38px;
+	line-height: 160%;
+	color: rgba(255,255,255,0.3);
+	opacity: 0;
+}
+
+#dash2 {
+	position: fixed;
+	font-weight: 300;
+	font-family: 'HelveticaN', sans-serif;
+	font-size: 10px;
+	bottom: 38px;
+	line-height: 160%;
+	color: rgba(255,255,255,0.3);
+	opacity: 0;
+}
+
+#about:hover { color: white; }
+#network:hover { color: white; }
+#visualization:hover { color: white; }
 
 
 

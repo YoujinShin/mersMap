@@ -1,10 +1,10 @@
 var yScale = d3.scale.linear()
 	.domain([0, 40])
-	.range([heightR - 80, 100]);
+	.range([heightR - 70, 100]);
 
 var yScaleR = d3.scale.linear() //age
 	.domain([0, 110])
-	.range([heightR - 80, 100]);
+	.range([heightR - 70, 100]);
 
 var xScale = d3.time.scale()
 	.domain([ parseDate('5/20/15'), parseDate('6/21/15') ])
@@ -89,6 +89,8 @@ function byAge() {
 	d3.select('#states').style('visibility', 'hidden');
 	d3.select('#graph').style('visibility', 'visible');
 
+	checkCircle();
+
 	circle.transition().duration(2000)
 		.attr('cx', function(d) { return xScale(d.date); })
 		.attr('cy', function(d, i) { return yScaleR(d.age); });
@@ -109,6 +111,8 @@ function byTime() {
 	d3.select('#states').style('visibility', 'hidden');
 	d3.select('#graph').style('visibility', 'visible');
 
+	checkCircle();
+
 	circle.transition().duration(2000)
 		.attr('cx', function(d) { return xScale(d.date); })
 		.attr('cy', function(d, i) { return yScale(d.y); });
@@ -128,6 +132,8 @@ function byMap() {
 
 	d3.select('#states').style('visibility', 'visible');
 	d3.select('#graph').style('visibility', 'hidden');
+
+	checkCircle2();
 
 	mapClicked = true;
 }

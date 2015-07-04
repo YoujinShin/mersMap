@@ -160,6 +160,13 @@ function changeHome(d) {
     d3.select('#tooltip').style('opacity', function() { return opacScale2(d); });
     // d3.select('#states').style('opacity', function() { return opacScale2(d); });
 
+    d3.select('#about').style('opacity', function() { return opacScale2(d); });
+    d3.select('#network').style('opacity', function() { return opacScale2(d); });
+    d3.select('#visualization').style('opacity', function() { return opacScale2(d); });
+    d3.select('#dash').style('opacity', function() { return opacScale2(d); });
+    d3.select('#dash2').style('opacity', function() { return opacScale2(d); });
+
+
     if(d > 300) {
         d3.select('#title').style('visibility', 'hidden');
         d3.select('#arrow').style('visibility', 'hidden');
@@ -172,38 +179,53 @@ function changeHome(d) {
 // update circle
 function changeCircle(d) {
 
-    var currentPosition = yScaleL2(d);
+    if(mapClicked) {
+        checkCircle2();
+    } else {
+        checkCircle();
+    }
+}
+
+function checkCircle() {
+
+    var currentPosition = yScaleL2(scrollTop);
     var patients = 0;
     var deaths = 0;
 
-    if(mapClicked) {
+    circle.each(function(e) {
+        var circlePosition = yScaleL(e.date);
+        
+        if(circlePosition > currentPosition) {
+            d3.select(this).style('opacity', 0);
+        } else {
+            d3.select(this).style('opacity', 1);
+            if(e.condition == 'death') { deaths = deaths + 1; }
+            patients = patients + 1;
+        }
+    });
 
-        circle2.each(function(e) {
-            var circlePosition = yScaleL(e.date);
-            
-            if(circlePosition > currentPosition) {
-                d3.select(this).style('opacity', 0);
-            } else {
-                d3.select(this).style('opacity', 1);
-                if(e.condition == 'death') { deaths = deaths + 1; }
-                patients = patients + 1;
-            }
-        });
-    } else {
+    $('#num_patients').text(patients);
+    $('#num_deaths').text(deaths);
+}
 
-        circle.each(function(e) {
-            var circlePosition = yScaleL(e.date);
-            
-            if(circlePosition > currentPosition) {
-                d3.select(this).style('opacity', 0);
-            } else {
-                d3.select(this).style('opacity', 1);
-                if(e.condition == 'death') { deaths = deaths + 1; }
-                patients = patients + 1;
-            }
-        });
-    }
+function checkCircle2() {
 
+    var currentPosition = yScaleL2(scrollTop);
+    var patients = 0;
+    var deaths = 0;
+
+    circle2.each(function(e) {
+        var circlePosition = yScaleL(e.date);
+        
+        if(circlePosition > currentPosition) {
+            d3.select(this).style('opacity', 0);
+        } else {
+            d3.select(this).style('opacity', 1);
+            if(e.condition == 'death') { deaths = deaths + 1; }
+            patients = patients + 1;
+        }
+    });
+    
     $('#num_patients').text(patients);
     $('#num_deaths').text(deaths);
 }
