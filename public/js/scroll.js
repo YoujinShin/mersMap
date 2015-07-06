@@ -51,7 +51,7 @@ var topMax = $('body').height() - window.innerHeight;
 
 // date to left bar
 var yScaleL = d3.time.scale() 
-    .domain([ parseDate('5/20/15'), parseDate('6/21/15') ])// .domain([ parseDate('20-May'), parseDate('21-Jun') ])
+    .domain([ parseDate('5/20/15'), parseDate('7/2/15') ])// .domain([ parseDate('20-May'), parseDate('21-Jun') ])
 	// .domain([ parseDate('18-May'), parseDate('23-Jun') ])// .domain([ parseDate('20-May'), parseDate('21-Jun') ])
     .range([0, window.innerHeight]);
 
@@ -62,24 +62,27 @@ var yScaleL2 = d3.time.scale()
 
 var progressBar = svgL.append('rect')
 	.attr('x', 0).attr('y', 0)
-	.attr('width', 6).attr('height', 0)
+	.attr('width', 4).attr('height', 0)
 	.attr('fill', 'rgba(255,255,255,1)')
 	.attr('stroke-width', 0);
 
 // scrollTop to date
 var dateScaleL = d3.time.scale()
     .domain([0, topMax])
-    .range([ parseDate('5/20/15'), parseDate('6/21/15') ]);
+    .range([ parseDate('5/20/15'), parseDate('7/2/15') ]);
     // .range([ '18-May', '23-Jun' ]);
 
 
 // LOAD DATA
 queue()
-	.defer(d3.csv, "/data/061621.csv")
+	// .defer(d3.csv, "/data/061621.csv")
+    .defer(d3.csv, "/data/070315.csv")
     .defer(d3.json, "/data/korea.json")
+    .defer(d3.csv, "/data/mers_news_select.csv")
 	.await(ready);
 
-function ready(error, data, json) {
+function ready(error, data, json, news) {
+    // console.log(news);
 
     getNumber(data);
 
@@ -89,33 +92,22 @@ function ready(error, data, json) {
         d.lon = +d.lon;
     });
 
+    news.forEach(function(d) {
+        d.date = parseDate(d.date);
+    });
+
     initViz(data);
     drawKorea(json, data);
 
-	// points = svgL.selectAll("rect")
-	// 		.data(data)
-	// 	.enter().append("rect")
-	// 	.attr('x', function(d) { return 0; })
-	// 	.attr('y', function(d, i) { return yScaleL(d.date) - 0.5; })
-	// 	.attr("width", function(d) { return 18; })
-	// 	.attr("height", 1)
-	// 	.style("fill", 'rgba(255,255,255,1)' )
-	// 	.attr('stroke', 'rgba(0,0,0,0)')
-	// 	.attr('stroke-width', 0)
-	// 	.on("mouseover", function(d,i) {
-
-	// 		getName(d.hospital);
-
-	// 		tooltip.text(d.age + '세, ' +  hospitalName);
-	// 		tooltip.style("visibility", "visible");
-	// 	})
-	// 	.on("mousemove", function() {
-	// 		tooltip.style("top", (event.pageY - 10) + "px")
-	// 		.style("left", (event.pageX + 12) + "px");
-	// 	})
-	// 	.on("mouseout", function() {
-	// 		tooltip.style("visibility", "hidden");
-	// 	});
+	points = svgL.selectAll("rect")
+			.data(news)
+		.enter().append("rect")
+		.attr('x', function(d) { return 0; })
+		.attr('y', function(d) { return yScaleL(d.date) - 0.5; })
+		.attr("width", function(d) { return 4; })
+		.attr("height", 1)
+		.style("fill", 'rgba(255,255,255,1)' )
+		.attr('stroke', 'rgba(0,0,0,0)');
 }
 
 // onscroll functions
@@ -128,12 +120,15 @@ onscroll = function() {
   changeHome(scrollTop);
   if(drawDone) { changeCircle(scrollTop); }
 
+  checkNews(scrollTop);
+
   var currentNum  = dateScaleL(scrollTop);
   var format = d3.time.format("%m.%d.%Y");
   var currentDate = format(new Date(currentNum));
 
   $('#currentDate').text(currentDate);
 };
+
 
 var opacScale = d3.scale.linear()
     .domain([0, 300]).range([1, 0]);
@@ -149,6 +144,8 @@ function changeHome(d) {
     d3.select('#arrow').style('opacity', function() { return opacScale(d); });
 
     d3.select('#viz_right').style('opacity', function() { return opacScale2(d); });
+    d3.select('.viz_mode').style('opacity', function() { return opacScale2(d); });
+    // d3.select('.button').style('opacity', function() { return opacScale2(d); });
 
     d3.select('#bttnTime').style('opacity', function() { return opacScale2(d); });
     d3.select('#bttnAge').style('opacity', function() { return opacScale2(d); });
@@ -160,11 +157,19 @@ function changeHome(d) {
     d3.select('#tooltip').style('opacity', function() { return opacScale2(d); });
     // d3.select('#states').style('opacity', function() { return opacScale2(d); });
 
+
     d3.select('#about').style('opacity', function() { return opacScale2(d); });
     d3.select('#network').style('opacity', function() { return opacScale2(d); });
     d3.select('#visualization').style('opacity', function() { return opacScale2(d); });
     d3.select('#dash').style('opacity', function() { return opacScale2(d); });
     d3.select('#dash2').style('opacity', function() { return opacScale2(d); });
+
+    d3.select('#map_des').style('opacity', function() { return opacScale2(d); });
+    d3.select('#net_des').style('opacity', function() { return opacScale2(d); });
+
+    d3.select('#news1').style('opacity', function() { return opacScale2(d); });
+    d3.select('#news2').style('opacity', function() { return opacScale2(d); });
+
 
 
     if(d > 300) {

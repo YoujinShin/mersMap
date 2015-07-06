@@ -7,8 +7,8 @@ var yScaleR = d3.scale.linear() //age
 	.range([heightR - 70, 100]);
 
 var xScale = d3.time.scale()
-	.domain([ parseDate('5/20/15'), parseDate('6/21/15') ])
-	// .domain([ parseDate('20-May'), parseDate('21-Jun') ])
+	.domain([ parseDate('5/20/15'), parseDate('7/2/15') ])
+	// .domain([ parseDate('5/20/15'), parseDate('6/21/15') ])
 	.range([50, widthR - 50]);
 
 var xAxis = d3.svg.axis()
@@ -88,6 +88,7 @@ function byAge() {
 	// circle.transition().duration(0).style('opacity', 1);
 	d3.select('#states').style('visibility', 'hidden');
 	d3.select('#graph').style('visibility', 'visible');
+	d3.select('#map_des').style('visibility', 'hidden');
 
 	checkCircle();
 
@@ -110,6 +111,7 @@ function byTime() {
 	// circle.transition().duration(0).style('opacity', 1);
 	d3.select('#states').style('visibility', 'hidden');
 	d3.select('#graph').style('visibility', 'visible');
+	d3.select('#map_des').style('visibility', 'hidden');
 
 	checkCircle();
 
@@ -132,9 +134,9 @@ function byMap() {
 
 	d3.select('#states').style('visibility', 'visible');
 	d3.select('#graph').style('visibility', 'hidden');
+	d3.select('#map_des').style('visibility', 'visible');
 
 	checkCircle2();
-
 	mapClicked = true;
 }
 

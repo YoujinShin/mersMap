@@ -9,6 +9,7 @@
 	<!-- // <script src="//code.jquery.com/jquery-1.11.2.min.js"></script> -->
 	<script src="/js/jquery-1.11.2.min.js"></script>
 	<link rel="stylesheet" href="/css/scroll.css">
+	<link rel="stylesheet" href="/css/scroll_news.css">
 	<link rel="stylesheet" href="/css/map.css">
 
 </head>
@@ -21,37 +22,92 @@
 		<!-- IN SOUTH KOREA -->
 		<span style="font-weight:300;font-size:20px;color: rgba(255,255,255,0.3)">SOUTH KOREA</span>
 	</div>
-
+	
+	<div id="viz_title" class="viz_mode">
+		<span style="letter-spacing: 1px">Mers Spread in S. Korea</span>
+		<br>
+		<span style="font-size: 12px;color: rgba(255,255,255,0.4)"> 
+			5.20.2015 - 
+			<span id='currentDate' style="font-size: 12px;color: rgba(255,255,255,1)">
+				5.20.2015</span> 
+		</span>
+	</div>
 
 	<!-- visualization -->
 	<div id="viz_left"></div>
-	<div id="viz_right">
-		<div id="viz_title">
-			<span style="letter-spacing: 1px">Mers Patients in S. Korea</span>
-			<br>
-			<span style="font-size: 12px;color: rgba(255,255,255,0.4)"> 
-				5.20.2015 - 
-				<span id='currentDate' style="font-size: 12px;color: rgba(255,255,255,1)">
-					5.20.2015</span> 
-			</span>
-			<!-- <hr> -->
-		</div>
+	<div id="viz_right" class="viz_mode"></div>
+	<div id="map_des">_ Mers Outbreak Hospitals</div>
+
+	<div id="net_des">
+		_ Nodes: Patidents <br>
+		_ Links: Infection route <br><br>
+		<span style="color:rgba(255,255,255,0.7">
+			Click on a node to retrieve it's own neighbors!
+		</span>
 	</div>
+
 
 	<div id="patients"><span id="num_patients">0</span> Patients</div>
 	<div id="deaths"><span id="num_deaths">0</span> Deaths</div>
 
-	<div id="about">ABOUT</div>
-	<div id="dash" style="left:108px">|</div>
+
+	<!-- menu -->
+	<div id="about" >ABOUT</div>
+	<div id="dash" style="left:128px">|</div>
 	<div id="network">NETWORK</div>
-	<div id="dash2" style="left:218px">|</div>
+	<div id="dash2" style="left:238px">|</div>
 	<div id="visualization">VISUALIZATION</div>
+
+	<div id='viz2'></div>
+
+
+	<!-- new feeds -->
+	<div id='news1'>
+		<div id="news1_title_box">
+			<span id="news1_title">
+			Seoul confirms first MERS infection case
+			</span>
+			<br>
+			<span id="news1_date" style="font-size:12px; color:rgba(255,255,255,0.4)">05.24.2015</span>
+		</div>	
+		<br>
+		<div id="news1_des">
+			South Korea’s Health Ministry on Wednesday confirmed its first Middle East Respiratory Syndrome coronavirus (MERS-CoV) case in a patient who returned from Bahrain to Seoul earlier this month. The 68-year-old is currently reported to be in a stable condition.
+		</div>
+		<br><br><br>
+		<div id="new1_bttn">FIND OUT MORE</div>
+	</div>
+
+	<div id='news2'>
+		<!-- <div id="news2_img"></div> -->
+		<img id="news2_img" src="/pic/mers0.jpg" />
+		<div id="news2_video" ></div>
+
+		<div id="news2_title_box">
+			<span id="news2_title">
+			Seoul confirms first MERS infection case
+			</span>
+			<br>
+			<span id="news2_date" style="font-size:12px; color:rgba(255,255,255,0.4)">05.24.2015</span>
+		</div>	
+
+		<div id="news2_dash"></div>
+
+		<div id="news2_des_box">
+			<span id="news2_des">
+			South Korea’s Health Ministry on Wednesday confirmed its first Middle East Respiratory Syndrome coronavirus (MERS-CoV) case in a patient who returned from Bahrain to Seoul earlier this month. The 68-year-old is currently reported to be in a stable condition.
+			</span>
+
+			<br><br><br>
+			<span id="news2_bttn">FIND OUT MORE</span>
+		</div>
+	</div>
 
 
 	<!-- button -->
-	<div id="bttnTime" class="button">TIME</div>
-	<div id="bttnAge" class="button">AGE</div>
-	<div id="bttnMap" class="button">MAP</div>
+	<div id="bttnTime" class="button viz_mode">TIME</div>
+	<div id="bttnAge" class="button viz_mode">AGE</div>
+	<div id="bttnMap" class="button viz_mode">MAP</div>
 
 	<img id="arrow" src="arrow2.png" />
 	<!-- <img id="menu" src="menu.png" /> -->
@@ -60,16 +116,22 @@
 	<!-- library -->
 	<script src="/js/d3.min.js"></script>
 	<script src="/js/queue.min.js"></script>
+
 	<script src="/js/sigma.min.js"></script>
 	<script src="/js/gexf-parser.js"></script>
 	<script src="/js/sigma.parsers.gexf.js"></script>
 
 
 	<!-- javascript -->
+	<script src="/js/network2.js"></script>
+
+
 	<script src="/js/scroll.js"></script>
 	<script src="/js/viz_scroll.js"></script>
 	<script src="/js/mode2.js"></script>
 	<script src="/js/viz_map.js"></script>
+	<script src="/js/viz_news.js"></script>
+
 
 </body>
 </html>

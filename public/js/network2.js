@@ -42,7 +42,8 @@ s = new sigma({
 
 // load gexf file
 sigma.parsers.gexf(
-  'network0621_3.gexf',
+  '070315.gexf',
+  // 'network0621_3.gexf',
   s,
   function() {
 
@@ -85,14 +86,14 @@ s.bind('clickNode', function(e) {
     if (toKeep[n.id])
       n.color = n.originalColor;
     else
-      n.color = '#4e5173';
+      n.color = '#333';
   });
 
   s.graph.edges().forEach(function(e) {
     if (toKeep[e.source] && toKeep[e.target])
       e.color = e.originalColor;
     else
-      e.color = '#4e5173';
+      e.color = '#333';
   });
 
   s.refresh();
@@ -124,7 +125,7 @@ function filterNodes(hospital_name) {
     });
 
     if(hospital_name == name2) { d.color = d.originalColor; } 
-    else { d.color = '#4e5173'; }
+    else { d.color = '#333'; }
   });
 
   s.refresh();
