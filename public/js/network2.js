@@ -63,8 +63,9 @@ sigma.parsers.gexf(
 s.bind('overNode', function(e) {
 
   var attr = e.data.node.attributes;
-  getName(attr.hospital);
-  tooltip2.text('확진자 '+ e.data.node.label +', ' +attr.age + '세, ' +  hospitalName);
+  // getName(attr.hospital);
+  // tooltip2.text('확진자 '+ e.data.node.label +', ' +attr.age + '세, ' +  hospitalName);
+  tooltip2.text('Patient '+ e.data.node.label );
   tooltip2.style("visibility", "visible");
 });
 

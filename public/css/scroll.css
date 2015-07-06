@@ -115,7 +115,7 @@ body {
 }
 
 #tooltip {   
-	font-family: 'Namsan', sans-serif;
+	font-family: 'HelveticaN', sans-serif;
 	position: absolute;
 	z-index: 30; 
 	text-align: center;
@@ -127,6 +127,26 @@ body {
 	letter-spacing: 1px;
 	color: #fff;
 	background-color: rgba(0,0,0,0.7);
+	visibility: hidden;
+}
+
+#tooltip2 {   
+	font-family: 'HelveticaN', sans-serif;
+	position: absolute;
+	z-index: 30; 
+	/*right: 20px;*/
+	right: 0px;
+	width: 46%;
+	top: 160px;
+	text-align: center;
+  
+	font-size: 12px;
+	border: 1px;
+	/*border-radius: 4px;*/
+	pointer-events: none;
+	letter-spacing: 1px;
+	color: #fff;
+	/*background-color: rgba(0,0,0,0.2);*/
 	visibility: hidden;
 }
 
