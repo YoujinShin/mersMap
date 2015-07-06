@@ -32,6 +32,14 @@ function checkNews(d) {
 
     	}else {
     		// news with image -> news2
+            if(selectedStory.Video == "") {
+                $('#news2_img').attr('src', selectedStory.Image);
+                 $('#news2_video').html("");
+            } else {
+                $('#news2_img').attr('src', "");
+                $('#news2_video').html(selectedStory.Video);
+            }
+            
     		$('#news1').css('visibility', 'hidden');
     		$('#news2').css('visibility', 'visible');
 
@@ -41,13 +49,7 @@ function checkNews(d) {
             d3.select('#news2_bttn').attr('href', selectedStory.Link);
             d3.select('#source2').text(selectedStory.Source);
 
-            if(selectedStory.Video == "") {
-                $('#news2_img').attr('src', selectedStory.Image);
-                 $('#news2_video').html("");
-            } else {
-                $('#news2_img').attr('src', "");
-                $('#news2_video').html(selectedStory.Video);
-            }
+            
             
             positioning();
     	}
