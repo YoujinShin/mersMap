@@ -39,6 +39,9 @@ $('#network').click(function() {
 	$('#patients').css('visibility', 'hidden');
 	$('#deaths').css('visibility', 'hidden');
 
+	$('#news1').css('visibility', 'hidden');
+	$('#news2').css('visibility', 'hidden');
+
 	d3.select('#map_des').style('visibility', 'hidden');
 	d3.select('#net_des').style('visibility', 'visible');
 	

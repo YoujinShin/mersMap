@@ -102,12 +102,13 @@ function ready(error, data, json, news) {
 	points = svgL.selectAll("rect")
 			.data(news)
 		.enter().append("rect")
-        .attr('class', 'points')
+        // .attr('class', 'points')
 		.attr('x', function(d) { return 0; })
 		.attr('y', function(d) { return yScaleL(d.date) - 0.5; })
 		.attr("width", function(d) { return 4; })
 		.attr("height", 1)
 		.style("fill", 'rgba(255,255,255,1)' )
+        .style('visibility', 'hidden')
 		.attr('stroke', 'rgba(0,0,0,0)');
 }
 
@@ -137,6 +138,7 @@ var opacScale = d3.scale.linear()
 var opacScale2 = d3.scale.linear()
     .domain([0, 100]).range([0, 1]);
 
+var pointsShown = false;
 
 // change home screen
 function changeHome(d) {
@@ -178,10 +180,28 @@ function changeHome(d) {
         d3.select('#arrow').style('visibility', 'hidden');
         // d3.select('.points').style('visibility', 'visible');
 
+        if(pointsShown == false) {
+            points.each(function(e) {
+                d3.select(this).style('visibility', 'visible');
+                // console.log(e);
+            });
+        }
+        
+        pointsShown = true;
+
     } else {
         d3.select('#title').style('visibility', 'visible');
         d3.select('#arrow').style('visibility', 'visible');
         // d3.select('.points').style('visibility', 'hidden');
+
+        if(pointsShown == true) {
+            points.each(function(e) {
+                d3.select(this).style('visibility', 'hidden');
+                // console.log(e);
+            });
+        }
+
+        pointsShown = false;
     }
 }
 
