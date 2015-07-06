@@ -1,6 +1,6 @@
 #news1 {
 	position: fixed;
-	top: 20%;
+	top: 24%;
 	/*top: 180px;*/
 	left: 60px;
 	width: 50%;
@@ -132,7 +132,7 @@
 
 #about_title {
 	position: relative;
-	top: 12%;
+	top: 16%;
 	left: 10%;
 	color: #ed526f;
 	font-weight: 400;
@@ -142,7 +142,7 @@
 
 #about_des {
 	position: relative;
-	top: 19%;
+	top: 24%;
 	left: 10%;
 	width: 80%;
 	color: rgba(255,255,255,0.5);
@@ -162,7 +162,7 @@
 
 	position: relative;
 	left: 10%;
-	top: 27%;
+	top: 32%;
 	border-left: 2px solid #ed526f;
 	padding-left: 12px;
 	line-height: 160%;
