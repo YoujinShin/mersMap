@@ -231,7 +231,8 @@ body {
 	letter-spacing: 0px;
 	line-height: 160%;
 	cursor:pointer;
-	color: rgba(255,255,255,0.3);
+	color: rgba(255,255,255,1);
+	/*color: rgba(255,255,255,0.3);*/
 	opacity: 0;
 }
 

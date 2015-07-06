@@ -1,5 +1,8 @@
 window.drawDone = false;
 window.mapClicked = false;
+window.networkClicked = false;
+window.aboutClicked = false;
+
 
 // VIZ LEFT
 widthL = $('#viz_left').width();
@@ -122,7 +125,11 @@ onscroll = function() {
   changeHome(scrollTop);
   if(drawDone) { changeCircle(scrollTop); }
 
-  checkNews(scrollTop);
+
+  if(networkClicked) { }
+  else if(aboutClicked) { }
+  else { checkNews(scrollTop); }
+  
 
   var currentNum  = dateScaleL(scrollTop);
   var format = d3.time.format("%m.%d.%Y");
@@ -173,6 +180,8 @@ function changeHome(d) {
     d3.select('#news1').style('opacity', function() { return opacScale2(d); });
     d3.select('#news2').style('opacity', function() { return opacScale2(d); });
     // d3.select('.points').style('opacity', function() { return opacScale2(d); });
+
+    d3.select('#about_box ').style('opacity', function() { return opacScale2(d); });
 
 
     if(d > 300) {
