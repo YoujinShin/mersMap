@@ -24,7 +24,7 @@
 	line-height: 150%;
 }
 
-#new1_bttn {
+#news1_bttn {
 	padding: 12px;
 
 	font-size: 12px;
@@ -33,6 +33,7 @@
 	border: 1px solid #ed526f;
 	width: 160px;
 	text-align: center;
+	text-decoration: none;
 }
 
 /* news2 */
@@ -106,4 +107,15 @@
 	width: 160px !important;
 	/*width: 50%;*/
 	text-align: center;
+	text-decoration: none;
 }
+
+/* points */
+.points {
+	/*opacity: 0;*/
+	/*visibility: hidden;*/
+}
+
+
+
+

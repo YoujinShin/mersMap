@@ -102,6 +102,7 @@ function ready(error, data, json, news) {
 	points = svgL.selectAll("rect")
 			.data(news)
 		.enter().append("rect")
+        .attr('class', 'points')
 		.attr('x', function(d) { return 0; })
 		.attr('y', function(d) { return yScaleL(d.date) - 0.5; })
 		.attr("width", function(d) { return 4; })
@@ -169,15 +170,18 @@ function changeHome(d) {
 
     d3.select('#news1').style('opacity', function() { return opacScale2(d); });
     d3.select('#news2').style('opacity', function() { return opacScale2(d); });
-
+    // d3.select('.points').style('opacity', function() { return opacScale2(d); });
 
 
     if(d > 300) {
         d3.select('#title').style('visibility', 'hidden');
         d3.select('#arrow').style('visibility', 'hidden');
+        // d3.select('.points').style('visibility', 'visible');
+
     } else {
         d3.select('#title').style('visibility', 'visible');
         d3.select('#arrow').style('visibility', 'visible');
+        // d3.select('.points').style('visibility', 'hidden');
     }
 }
 
