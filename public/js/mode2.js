@@ -30,6 +30,8 @@ $('#network').click(function() {
 
 	networkClicked = true;
 	aboutClicked = false;
+	// mapClicked = false;
+	$('#map_des').css('visibility', 'hidden');
 
 	$('#visualization').css('color', 'rgba(255,255,255,0.3)');
 	$('#network').css('color', 'rgba(255,255,255,1)');
@@ -105,6 +107,8 @@ $('#about').click(function() {
 	$('#network').css('color', 'rgba(255,255,255,0.3)');
 	$('#about').css('color', 'rgba(255,255,255,1)');
 
+	$('#map_des').css('visibility', 'hidden');
+
 	$('#viz_right').css('visibility', 'hidden');
 	$('#viz_left').css('visibility', 'hidden');
 	$('#viz2').css('visibility', 'hidden');
@@ -121,9 +125,10 @@ $('#about').click(function() {
 
 	$('#about_box').css('visibility', 'visible');
 
-
 	d3.select('#net_des').style('visibility', 'hidden');
 });
+
+
 
 $( document ).ready(function() {
     console.log( "ready!" );
