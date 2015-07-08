@@ -30,6 +30,8 @@ function checkNews(d) {
             d3.select('#news1_bttn').attr('href', selectedStory.Link);
             d3.select('#source1').text(selectedStory.Source);
 
+            getCenter(1);
+
     	}else {
     		// news with image -> news2
             if(selectedStory.Video == "") {
@@ -49,13 +51,30 @@ function checkNews(d) {
             d3.select('#news2_bttn').attr('href', selectedStory.Link);
             d3.select('#source2').text(selectedStory.Source);
 
-            
-            
             positioning();
+            getCenter(2);
     	}
-    	// console.log(selectedStory.Image );
-    	// console.log(selectedNum);
+
     }
+}
+
+
+function getCenter(d) {
+
+    var h = window.innerHeight;
+
+    if(d == 1) {
+        var newsH = $('#news1').height() + 120;
+        var tempH = (h - newsH)/2 ;
+        $('#news1').css('top', tempH + 'px');
+    }
+
+    if(d == 2) {
+        var newsH = $('#news2').height() + 120;
+        var tempH = (h - newsH)/2 ;
+        $('#news2').css('top', tempH + 'px');
+    }
+   
 }
 
 
