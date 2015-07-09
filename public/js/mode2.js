@@ -126,6 +126,16 @@ $('#about').click(function() {
 	$('#about_box').css('visibility', 'visible');
 
 	d3.select('#net_des').style('visibility', 'hidden');
+
+	// 
+	var w = $('#about_box').width();
+	var h = $('#about_box').height();
+
+	var top = (window.innerHeight - h)/2;
+	var left = (window.innerWidth - w)/2;
+
+	$('#about_box').css('top', top);
+	$('#about_box').css('left', left);
 });
 
 
@@ -137,7 +147,6 @@ $( document ).ready(function() {
     $('#news2').css('height', newsH + 202 + 'px');
 
     var imgW = $('#news2_img').width();
-    // console.log(imgW);
     $('#news2_img').css('margin-left', -imgW/2+'px');
 });
 
