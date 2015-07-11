@@ -58,7 +58,7 @@ function initViz(data) {
 		.attr('class', 'circles')
 		.attr('cx', function(d) {  return xScale(d.date); })
 		.attr('cy', function(d, i) { return yScale(d.y); })
-		.attr("r", function(d) { return 2.2; })
+		.attr("r", function(d) { return 2; })
 		.style("fill", function(d) { return getColor(d); })
 		.style("opacity", 0)
 		.attr('stroke', 'rgba(0,0,0,0)')
@@ -80,8 +80,9 @@ function initViz(data) {
 }
 
 function getColor(d) {
-	if(d.condition == 'death') { return  '#ed526f' }// pink: ed526f// purple: 444664
-	else { return 'rgba(255,255,255,0.86)' }
+	return 'rgba(255,255,255,0.6)';
+	// if(d.condition == 'death') { return  '#ed526f' }// pink: ed526f// purple: 444664
+	// else { return 'rgba(255,255,255,0.86)' }
 }
 
 function byAge() {

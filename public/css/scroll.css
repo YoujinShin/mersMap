@@ -58,6 +58,18 @@ body {
 	line-height: 160%;
 }
 
+#recovered {
+	color: rgba(255,255,255,0.3);
+	position: fixed;
+	top: 140px;
+	right: 2%;
+	font-family: 'HelveticaN', sans-serif;
+	font-size: 12px;
+	font-weight: 300;
+	letter-spacing: 1px;
+	opacity: 0;
+}
+
 #deaths {
 	position: fixed;
 	top: 120px;
@@ -71,6 +83,7 @@ body {
 }
 
 #patients {
+	color: rgba(255,255,255,0.8);
 	position: fixed;
 	top: 100px;
 	right: 2%;
