@@ -245,7 +245,7 @@ function checkCircle() {
 
     circle.each(function(e) {
         var circlePosition = yScaleL(e.date);
-        d3.select(this).style('fill', 'rgba(255,255,255,0.5)');
+        d3.select(this).style('fill', 'rgba(255,255,255,0.46)');
         
         if(circlePosition > currentPosition) {
             d3.select(this).style('opacity', 0);
@@ -255,14 +255,14 @@ function checkCircle() {
                 patients = patients + 1;
             }
             
-            console.log('selected');
-            console.log(e.date);
+            // console.log('selected');
+            // console.log(e.date);
             // color 
             if(e.h !== 'none') {
                 if(e.h < currentPosition) {
                     if(e.condition == 'death') { 
 
-                        d3.select(this).style('fill', '#ed5268'); //ed5268 // #ed526f
+                        d3.select(this).style('fill', '#dc173c'); //ed5268 // #ed526f
                         deaths = deaths + 1;
                     }
                     else if(e.condition == 'recovered') { 
@@ -307,7 +307,7 @@ function checkCircle2() {
                 if(e.h < currentPosition) {
                     if(e.condition == 'death') { 
 
-                        d3.select(this).style('fill', '#ed5268'); //ed5268 // #ed526f
+                        d3.select(this).style('fill', '#dc173c');  // 원래 #ed526f // dc173c
                         deaths = deaths + 1;
                     }
                     else if(e.condition == 'recovered') { 

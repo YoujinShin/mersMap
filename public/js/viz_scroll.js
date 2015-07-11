@@ -9,7 +9,7 @@ var yScaleR = d3.scale.linear() //age
 var xScale = d3.time.scale()
 	.domain([ parseDate('5/20/15'), parseDate('7/2/15') ])
 	// .domain([ parseDate('5/20/15'), parseDate('6/21/15') ])
-	.range([50, widthR - 50]);
+	.range([40, widthR - 40]);
 
 var xAxis = d3.svg.axis()
 	.scale(xScale)

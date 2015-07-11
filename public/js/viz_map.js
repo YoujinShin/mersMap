@@ -4,11 +4,22 @@
 // initialX = -11900,
 // initialY = 4050,
 
+// console.log(heightR * 0.85);
+// var tempHeight = heightR;
+// console.log(tempHeight);
+
+var tempHScale = d3.scale.linear()
+    .domain([600, 1200])
+    .range([3240, 3640]);
+
 var initialScale = 4300,
 initialX = -11000 + 1600,
-initialY = 3800 - 470,
+initialY = tempHScale(heightR),
+// initialY = 3800 - 470, // 3330
 centered,
 labels;
+
+console.log(initialY);
 
 var projection = d3.geo.mercator()
     .scale(initialScale)
