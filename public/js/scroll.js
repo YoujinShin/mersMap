@@ -80,7 +80,7 @@ var dateScaleL = d3.time.scale()
 queue()
 	// .defer(d3.csv, "/data/061621.csv")
     // .defer(d3.csv, "/data/070315.csv")
-    .defer(d3.csv, "/data/070310.csv")
+    .defer(d3.csv, "/data/071015.csv")
     .defer(d3.json, "/data/korea.json")
     .defer(d3.csv, "/data/mers_news_select.csv")
 	.await(ready);
@@ -251,10 +251,14 @@ function checkCircle() {
             d3.select(this).style('opacity', 0);
         } else {
             d3.select(this).style('opacity', 1);
-            patients = patients + 1;
+            if(e.date != undefined) {
+                patients = patients + 1;
+            }
+            
+            console.log('selected');
+            console.log(e.date);
             // color 
             if(e.h !== 'none') {
-
                 if(e.h < currentPosition) {
                     if(e.condition == 'death') { 
 
@@ -272,6 +276,8 @@ function checkCircle() {
             }
         }
     });
+
+    // console.log(patients);
 
     $('#num_patients').text(patients);
     $('#num_deaths').text(deaths);
